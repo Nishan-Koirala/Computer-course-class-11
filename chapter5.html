@@ -2,50 +2,663 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chapter 5: Programming Concepts & Logics (C Language)</title>
+  <title>Chapter 5: Programming Concepts and Logics (C Language)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* Base Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f7f7f7; color: #333; padding: 20px; }
-    header { background: #2c3e50; color: #fff; padding: 15px; text-align: center; }
-    main { max-width: 800px; margin: 80px auto 20px auto; background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    h1 { font-size: 2rem; margin-bottom: 20px; }
-    h2 { font-size: 1.5rem; margin: 20px 0 10px; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
+    
+    /* Header with Persistent Menu */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; }
+    details { position: relative; }
+    summary {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      margin-right: 8px;
+      background: transparent;
+      border: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .line {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .menu-text { font-size: 1rem; font-weight: bold; color: #fff; }
+    nav {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #34495e;
+      width: 240px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    nav ul { list-style: none; }
+    nav li { border-bottom: 1px solid #2c3e50; }
+    nav li a {
+      display: block;
+      padding: 10px 15px;
+      color: #ecf0f1;
+      transition: background 0.3s;
+    }
+    nav li a:hover { background: #2c3e50; }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 950px;
+      margin: 100px auto 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
+    h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    h3 { font-size: 1.2rem; margin: 15px 0 10px; }
     p { margin-bottom: 15px; text-align: justify; }
     ul, ol { margin-left: 20px; margin-bottom: 15px; }
     li { margin-bottom: 8px; }
-    .back-link { margin-top: 20px; display: block; text-align: center; }
-    .back-link a { color: #2980b9; text-decoration: none; }
+    table { border-collapse: collapse; margin: 15px 0; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    
+    /* Back to Home Link */
+    .back-link { text-align: center; margin-top: 20px; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
     .back-link a:hover { text-decoration: underline; }
+    
+    /* Footer */
     footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>Chapter 5: Programming Concepts & Logics (C Language)</h1>
+    <div class="header-left">
+      <details open>
+        <summary>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology-I (HTML + CSS)</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
   </header>
+  
+  <!-- Main Content -->
   <main>
+    <h1>Chapter 5: Programming Concepts and Logics</h1>
+    
+    <!-- Introduction -->
     <section>
-      <h2>Introduction to Programming</h2>
+      <h2>Introduction</h2>
       <p>
-        Programming involves writing instructions for the computer to perform tasks. This chapter introduces the basics of programming using the C language.
+        As we know, every computerized device requires commands to operate. These commands instruct the computer to perform specific actions and are written in programming languages. A program is a set of instructions that, when integrated, forms complete software. In simple terms, software is a collection of interrelated programs that perform specific functions.
+      </p>
+      <p>
+        Programs written in any programming language are not directly understood by the computer. Therefore, language translators—such as assemblers, compilers, and interpreters—are used to convert the source program into machine-level language.
+      </p>
+      <p>
+        The program written by a programmer is known as the <strong>source program</strong>; after conversion, it becomes the executable program.
       </p>
     </section>
+    
+    <!-- Qualities of Good Programs -->
     <section>
-      <h2>Key Concepts</h2>
+      <h2>Qualities of Good Programs</h2>
       <ul>
-        <li>Variables & Data Types</li>
-        <li>Operators & Expressions</li>
-        <li>Control Structures (if, switch, loops)</li>
-        <li>Functions & Arrays</li>
-        <li>Input/Output Operations</li>
+        <li>Easy to understand</li>
+        <li>Error-free</li>
+        <li>Reliable</li>
+        <li>User-friendly interface</li>
+        <li>Portable and flexible</li>
       </ul>
     </section>
+    
+    <!-- Programming Language -->
     <section>
-      <h2>Sample Code & Exercises</h2>
+      <h2>Programming Language</h2>
       <p>
-        [Insert sample C code examples and practice exercises here.]
+        A programming language allows communication between the user and the computer. It is a set of keywords, variables, operators, loops, and other elements used to write instructions. The process of writing these instructions is called programming, and the individual who writes the program is a programmer.
+      </p>
+    </section>
+    
+    <!-- Types of Programming Languages -->
+    <section>
+      <h2>Types of Programming Languages</h2>
+      <ol>
+        <li>
+          <strong>Low Level Languages:</strong>
+          <ul>
+            <li>
+              <strong>Machine Level Language (1GL):</strong> Consists of sequences of 0's and 1's, directly understood by the processor. It offers high execution speed but is difficult to develop and debug.
+            </li>
+            <li>
+              <strong>Assembly Language (2GL):</strong> Uses mnemonic codes (e.g., ADD, SUB) in place of binary digits. It is easier to write and debug than machine language but remains machine-dependent. An assembler converts it into machine code.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>High Level Languages:</strong>
+          <ul>
+            <li>
+              <strong>Procedural Oriented Language (3GL):</strong> Focuses on procedures and logic. Examples: C, FORTRAN, QBasic.
+            </li>
+            <li>
+              <strong>Problem/Object Oriented Language (4GL):</strong> Focuses on data rather than procedures, offering features like encapsulation and inheritance. Examples: C#, C++, Java.
+            </li>
+            <li>
+              <strong>Natural Language (5GL):</strong> Uses common language-like statements. Languages like PROLOG fall in this category.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+    
+    <!-- Language Translator/Processor -->
+    <section>
+      <h2>Language Translator/Processor</h2>
+      <p>
+        A language translator converts programs written in assembly or high-level languages (source programs) into machine code (object programs). Translators such as assemblers, compilers, and interpreters are used to perform this conversion.
+      </p>
+      <ul>
+        <li><strong>Assembler:</strong> Converts assembly language into machine code.</li>
+        <li><strong>Compiler:</strong> Translates the entire high-level source program into machine code at once. (Examples: C, C++, Java, FORTRAN)</li>
+        <li><strong>Interpreter:</strong> Translates one statement at a time, which makes debugging easier but execution slower. (Examples: BASIC, C#, PHP)</li>
+      </ul>
+      <h3>Difference between Compiler and Interpreter</h3>
+      <table>
+        <tr>
+          <th>S.N.</th>
+          <th>Compiler</th>
+          <th>Interpreter</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Translates the entire program at once.</td>
+          <td>Translates one line at a time.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Errors reported after full compilation.</td>
+          <td>Errors reported as each line is translated.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Translation process is faster.</td>
+          <td>Translation process is slower.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Code is harder to debug.</td>
+          <td>Code is easier to debug.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Requires more memory.</td>
+          <td>Requires less memory.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Examples: C, C++, Java, FORTRAN</td>
+          <td>Examples: BASIC, C#, PHP</td>
+        </tr>
+      </table>
+    </section>
+    
+    <!-- Syntax, Semantics, and Error -->
+    <section>
+      <h2>Syntax and Semantics</h2>
+      <p>
+        Programming languages allow the user to communicate with the computer through structured code. <strong>Syntax</strong> refers to the set of rules that define the structure of the code, whereas <strong>semantics</strong> refers to the meaning of the code elements. For example, in QBasic:
+      </p>
+      <pre>
+Print "This is programming"
+      </pre>
+      <p>
+        Here, "Print" represents the operation (semantics) and the entire statement is the syntax.
+      </p>
+      <h2>Error (BUG)</h2>
+      <p>
+        A bug is an error that prevents a program from executing correctly. Errors may be due to improper syntax, flawed logic, or runtime issues. They are categorized as:
+      </p>
+      <ul>
+        <li><strong>Syntax Error:</strong> Errors arising from not following language rules (e.g., missing semicolons).</li>
+        <li><strong>Logical Error:</strong> Errors due to flawed logic, leading to incorrect results.</li>
+        <li><strong>Runtime Error:</strong> Errors that occur during program execution (e.g., division by zero, memory issues).</li>
+      </ul>
+    </section>
+    
+    <!-- Program Design Tools -->
+    <section>
+      <h2>Program Design Tools</h2>
+      <p>
+        Several tools aid in program design:
+      </p>
+      <ul>
+        <li><strong>Algorithm:</strong> A step-by-step procedure to solve a problem, written in plain language.</li>
+        <li><strong>Flowchart:</strong> A diagrammatic representation of the steps in an algorithm using symbols (oval for Start/Stop, rectangle for processes, diamond for decisions, and arrows for flow direction).
+        </li>
+      </ul>
+      <h3>Example Algorithms</h3>
+      <p><strong>Algorithm 1: Calculate Simple Interest</strong></p>
+      <ol>
+        <li>Start</li>
+        <li>Read values of Principal (P), Time (T), and Rate (R)</li>
+        <li>Calculate Interest: I = (P * T * R) / 100</li>
+        <li>Display the Interest</li>
+        <li>Stop</li>
+      </ol>
+      <p><strong>Algorithm 2: Find the Greatest Number Among Two Numbers</strong></p>
+      <ol>
+        <li>Start</li>
+        <li>Read two numbers, a and b</li>
+        <li>If a > b, display a as the greatest; otherwise, display b</li>
+        <li>Stop</li>
+      </ol>
+      <p>
+        <strong>Flowchart Example:</strong> Create a flowchart using the symbols mentioned to represent these algorithms.
+      </p>
+    </section>
+    
+    <!-- C Program Examples: Basic Examples -->
+    <section>
+      <h2>C Program Examples</h2>
+      <p><strong>Q1. Input 10 Different Numbers and Print Them</strong></p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a[10], i;
+    printf("Enter any 10 numbers: ");
+    for(i = 0; i < 10; i++) {
+        scanf("%d", &a[i]);
+    }
+    for(i = 0; i < 10; i++) {
+        printf("%d ", a[i]);
+    }
+    return 0;
+}
+      </pre>
+      <p><strong>Q2. Input Salary of 1000 Employees and Calculate Average Salary</strong></p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int sal[1000], i, s = 0;
+    float av;
+    printf("Enter salary for 1000 employees: ");
+    for(i = 0; i < 1000; i++) {
+        scanf("%d", &sal[i]);
+    }
+    for(i = 0; i < 1000; i++) {
+        s += sal[i];
+    }
+    av = s / 1000.0;
+    printf("Average salary of 1000 employees is %f", av);
+    return 0;
+}
+      </pre>
+      <p><strong>Q3. Input Salary of 1000 Employees and Count Those Earning Between 30000 and 50000</strong></p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int sal[1000], i, c = 0;
+    printf("Enter salaries for 1000 employees: ");
+    for(i = 0; i < 1000; i++) {
+        scanf("%d", &sal[i]);
+    }
+    for(i = 0; i < 1000; i++) {
+        if(sal[i] >= 30000 && sal[i] <= 50000) {
+            c++;
+        }
+    }
+    printf("Total number of employees earning between 30000 and 50000 is %d", c);
+    return 0;
+}
+      </pre>
+      <p><strong>Q5. Input 10 Different Numbers and Find the Greatest Among Them</strong></p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a[10], i, g;
+    printf("Enter any 10 numbers: ");
+    for(i = 0; i < 10; i++) {
+        scanf("%d", &a[i]);
+    }
+    g = a[0];
+    for(i = 1; i < 10; i++) {
+        if(a[i] > g) {
+            g = a[i];
+        }
+    }
+    printf("Greatest number is %d\n", g);
+    return 0;
+}
+      </pre>
+      <p><strong>Q6. Input 10 Different Numbers and Sort Them in Ascending Order</strong></p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a[10], i, j, temp;
+    printf("Enter any 10 numbers: ");
+    for(i = 0; i < 10; i++) {
+        scanf("%d", &a[i]);
+    }
+    for(i = 0; i < 10 - 1; i++) {
+        for(j = 0; j < 10 - i - 1; j++) {
+            if(a[j] > a[j+1]) {
+                temp = a[j];
+                a[j] = a[j+1];
+                a[j+1] = temp;
+            }
+        }
+    }
+    printf("Ascending order is: ");
+    for(i = 0; i < 10; i++) {
+        printf("%d\t", a[i]);
+    }
+    return 0;
+}
+      </pre>
+      <p><strong>Q3 (Alternate): Input Salary of n Employees and Count Those Earning Between 30000 and 50000</strong></p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int sal[1000], i, c = 0, n;
+    printf("Enter the number of employees: ");
+    scanf("%d", &n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &sal[i]);
+    }
+    for(i = 0; i < n; i++) {
+        if(sal[i] >= 30000 && sal[i] <= 50000) {
+            c++;
+        }
+    }
+    printf("Total number of employees earning between 30000 and 50000 is %d", c);
+    return 0;
+}
+      </pre>
+    </section>
+    
+    <!-- Multidimensional Arrays -->
+    <section>
+      <h2>N-Dimension (Multidimensional Array)</h2>
+      <p>
+        A multidimensional array has more than one subscript. For example, a 3x3 matrix:
+      </p>
+      <pre>
+int n[3][3];
+      </pre>
+      <p><strong>Example Q1: Input 3x3 Matrix and Display It</strong></p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a[3][3], i, j;
+    printf("Enter 9 numbers: ");
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            printf("%d\t", a[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+      </pre>
+      <p><strong>Example Q2: Matrix Addition (3x3)</strong></p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a[3][3], b[3][3], c[3][3], i, j;
+    printf("Enter 9 numbers for both matrices:\n");
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            scanf("%d %d", &a[i][j], &b[i][j]);
+        }
+    }
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            c[i][j] = a[i][j] + b[i][j];
+        }
+    }
+    printf("Added matrix is:\n");
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            printf("%d\t", c[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+      </pre>
+      <p><strong>Example Q3: Matrix Multiplication (3x3)</strong></p>
+      <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a[3][3], b[3][3], p[3][3], i, j, k;
+    printf("Enter 9 numbers for both matrices:\n");
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            scanf("%d %d", &a[i][j], &b[i][j]);
+        }
+    }
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            p[i][j] = 0;
+            for(k = 0; k < 3; k++) {
+                p[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    printf("Multiplied matrix is:\n");
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            printf("%d\t", p[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+      </pre>
+    </section>
+    
+    <!-- Strings and String Functions -->
+    <section>
+      <h2>Strings and String Functions</h2>
+      <p>
+        A string is a group of characters represented by a character array. For example:
+      </p>
+      <pre>
+char a[10] = "hello";
+      </pre>
+      <p>
+        A two-dimensional array can be used to store multiple strings:
+      </p>
+      <pre>
+char a[3][10] = {"ball", "cat", "apple"};
+      </pre>
+      <h3>String Handling Functions (from string.h)</h3>
+      <ol>
+        <li>
+          <strong>strlen()</strong>: Returns the length of a string.
+          <br><em>Example:</em>
+          <pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char a[10];
+    int l;
+    printf("Enter any string: ");
+    scanf("%s", a);
+    l = strlen(a);
+    printf("The length is %d", l);
+    return 0;
+}
+          </pre>
+        </li>
+        <li>
+          <strong>strrev()</strong>: Returns the reverse of a string.
+          <br><em>Example:</em>
+          <pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char a[10];
+    printf("Enter any string: ");
+    scanf("%s", a);
+    printf("The reverse is %s", strrev(a));
+    return 0;
+}
+          </pre>
+        </li>
+        <li>
+          <strong>strlwr()</strong>: Converts a string to lower case.
+          <br><em>Example:</em>
+          <pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char a[10];
+    printf("Enter any string: ");
+    scanf("%s", a);
+    printf("Lowercase: %s", strlwr(a));
+    return 0;
+}
+          </pre>
+        </li>
+        <li>
+          <strong>strupr()</strong>: Converts a string to upper case.
+          <br><em>Example:</em>
+          <pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char a[10];
+    printf("Enter any string: ");
+    scanf("%s", a);
+    printf("Uppercase: %s", strupr(a));
+    return 0;
+}
+          </pre>
+        </li>
+        <li>
+          <strong>strcpy()</strong>: Copies one string to another.
+          <br><em>Example:</em>
+          <pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char a[10], b[10];
+    printf("Enter any string: ");
+    scanf("%s", a);
+    strcpy(b, a);
+    printf("Copied string: %s", b);
+    return 0;
+}
+          </pre>
+        </li>
+        <li>
+          <strong>strcat()</strong>: Concatenates (adds) two strings.
+          <br><em>Example:</em>
+          <pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char a[20], b[10];
+    printf("Enter first string: ");
+    scanf("%s", a);
+    printf("Enter second string: ");
+    scanf("%s", b);
+    strcat(a, b);
+    printf("Concatenated string: %s", a);
+    return 0;
+}
+          </pre>
+        </li>
+        <li>
+          <strong>strcmp()</strong>: Compares two strings. Returns 0 if equal.
+          <br><em>Example:</em>
+          <pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char a[10], b[10];
+    int x;
+    printf("Enter first string: ");
+    scanf("%s", a);
+    printf("Enter second string: ");
+    scanf("%s", b);
+    x = strcmp(a, b);
+    printf("Comparison value: %d", x);
+    return 0;
+}
+          </pre>
+        </li>
+      </ol>
+      <h3>Example: Check if a String is a Palindrome</h3>
+      <pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char a[20], b[20];
+    printf("Enter a string: ");
+    scanf("%s", a);
+    strcpy(b, a);
+    strrev(a);
+    if(strcmp(a, b) == 0)
+        printf("%s is a palindrome", b);
+    else
+        printf("%s is not a palindrome", b);
+    return 0;
+}
+      </pre>
+      <p>
+        <a href="#">Click here for more C programming course content</a>
       </p>
     </section>
   </main>
