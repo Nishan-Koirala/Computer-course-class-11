@@ -2,6 +2,317 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Chapter 6: Web Technology - I</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
+    
+    /* Header with Persistent Menu */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; }
+    details { position: relative; }
+    summary {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      margin-right: 8px;
+      background: transparent;
+      border: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .line {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .menu-text { font-size: 1rem; font-weight: bold; color: #fff; }
+    nav {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #34495e;
+      width: 240px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    nav ul { list-style: none; }
+    nav li { border-bottom: 1px solid #2c3e50; }
+    nav li a {
+      display: block;
+      padding: 10px 15px;
+      color: #ecf0f1;
+      transition: background 0.3s;
+    }
+    nav li a:hover { background: #2c3e50; }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 950px;
+      margin: 100px auto 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
+    h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    h3 { font-size: 1.2rem; margin: 15px 0 10px; }
+    p { margin-bottom: 15px; text-align: justify; }
+    ul, ol { margin-left: 20px; margin-bottom: 15px; }
+    li { margin-bottom: 8px; }
+    table { border-collapse: collapse; margin: 15px 0; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    
+    /* Figure Styling (if needed) */
+    .diagram { display: block; max-width: 100%; margin: 20px auto; }
+    
+    /* Back to Home Link */
+    .back-link { text-align: center; margin-top: 20px; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
+    .back-link a:hover { text-decoration: underline; }
+    
+    /* Footer */
+    footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <details open>
+        <summary>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology - I</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <h1>Chapter 6: Web Technology - I</h1>
+    
+    <!-- Introduction to the Internet -->
+    <section>
+      <h2>Introduction to the Internet</h2>
+      <p>
+        Internet is the global network of networks – a huge collection of computers interconnected worldwide to form a web-net.
+      </p>
+    </section>
+    
+    <!-- Components Required for Internet Connections -->
+    <section>
+      <h2>Components Required for Internet Connections</h2>
+      <p>The basic requirements for Internet connections are:</p>
+      <ul>
+        <li><strong>a)</strong> A TCP/IP enabled computer with a web browser.</li>
+        <li><strong>b)</strong> An account with an ISP (Internet Service Provider).</li>
+        <li><strong>c)</strong> A telephone line.</li>
+        <li><strong>d)</strong> A MODEM to connect the telephone line to the computer.</li>
+        <li><strong>e)</strong> A computer with the following minimum specifications:
+          <ul>
+            <li>Minimum 386 microprocessor chip with 16 MB RAM</li>
+            <li>Color monitor supporting 256 colors and 640x480 resolution</li>
+            <li>200 MB free hard disk space</li>
+            <li>Multimedia sound card and speakers</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    
+    <!-- Internet Services and Applications -->
+    <section>
+      <h2>Internet Services and Applications</h2>
+      <ul>
+        <li><strong>a)</strong> <strong>World Wide Web (WWW):</strong> A collection of interlinked hypertext documents accessed via HTTP. Created in 1990 at CERN.</li>
+        <li><strong>b)</strong> <strong>Web Browser:</strong> Software that accesses and displays web pages (e.g., Internet Explorer, Safari, Mozilla Firefox, Opera).</li>
+        <li><strong>c)</strong> <strong>FTP (File Transfer Protocol):</strong> Allows the transfer of files between computers.</li>
+        <li><strong>d)</strong> <strong>Electronic Mail (E-mail):</strong> Sending and receiving messages electronically.</li>
+        <li><strong>e)</strong> <strong>Voicemail:</strong> Records audio messages and enables voice communication via computers.</li>
+        <li><strong>f)</strong> <strong>USENET – View and News:</strong> Bulletin board service for posting and reading messages in various newsgroups.</li>
+        <li><strong>g)</strong> <strong>Chat:</strong> Real-time text communication between users, with offline messaging available.</li>
+        <li><strong>h)</strong> <strong>IRC (Internet Relay Chat):</strong> A multi-user live chat facility that connects users worldwide.</li>
+        <li><strong>i)</strong> <strong>Video Conferencing:</strong> Real-time face-to-face communication using sound and video.</li>
+        <li><strong>j)</strong> <strong>Universal Resource Locator (URL):</strong> A unique address used by web browsers to locate and retrieve files.</li>
+        <li><strong>k)</strong> <strong>E-Fax (Electronic Fax):</strong> Sends and receives faxes directly to/from a computer via the Internet.</li>
+        <li><strong>l)</strong> <strong>TELNET – Remote Login:</strong> Allows remote login to a host computer.</li>
+        <li><strong>m)</strong> <strong>Navigators – Information Servers:</strong> Tools such as Gopher, Archie, and WAIS that help locate and retrieve information online.</li>
+      </ul>
+    </section>
+    
+    <!-- Internet Terminologies -->
+    <section>
+      <h2>Internet Terminologies</h2>
+      <ul>
+        <li><strong>ISP:</strong> An Internet Service Provider that gives access to the Internet (e.g., Mercantile, Everest Net, World Link in Nepal).</li>
+        <li><strong>Link:</strong> A clickable route that navigates you to other web pages.</li>
+        <li><strong>Search Engine:</strong> Software that searches for websites and information (e.g., Yahoo, Alta Vista).</li>
+        <li><strong>Domain Name and IP Address:</strong> A unique domain name identifies a website and its corresponding IP address.</li>
+        <li><strong>DNS Server:</strong> Resolves domain names to IP addresses.</li>
+        <li><strong>Web Server:</strong> A storage location where website files are kept.</li>
+        <li><strong>Usernet Newsgroups/Net News:</strong> Bulletin board services that organize messages into topics.</li>
+        <li><strong>Mailing Lists:</strong> Email lists that deliver messages to subscribed recipients.</li>
+        <li><strong>POP Server:</strong> Stores incoming email for retrieval using the Post Office Protocol.</li>
+        <li><strong>SMTP Server:</strong> Transfers electronic mail between computers.</li>
+        <li><strong>FTP:</strong> File Transfer Protocol for moving files between computers.</li>
+        <li><strong>Anonymous FTP:</strong> A facility to access archived files without login credentials.</li>
+        <li><strong>Archived Files:</strong> Collections of files that are stored but not made public.</li>
+        <li><strong>HTTP:</strong> Hypertext Transfer Protocol used for transferring web pages.</li>
+        <li><strong>Proxy Server:</strong> Improves access speed by caching frequently accessed content.</li>
+        <li><strong>Internet Roaming:</strong> Using your ISP account while traveling, provided your ISP participates in global roaming.</li>
+      </ul>
+    </section>
+    
+    <!-- Introduction to HTML -->
+    <section>
+      <h2>Introduction to HTML</h2>
+      <p>
+        HTML (Hyper Text Markup Language) is used to create web pages. It is a text file containing tags and attributes that describe the content and structure of a page. Developed by Tim Berners-Lee based on SGML, HTML files are interpreted by web browsers to display content.
+      </p>
+      <p>
+        <strong>Use of HTML:</strong> Creating basic layouts, embedding images, videos, and formatting text.
+      </p>
+      <p>
+        <strong>Advantages:</strong> Easy to use, flexible, supported by all web browsers and operating systems, and loads quickly.
+      </p>
+      <p>
+        <strong>Disadvantages:</strong> Limited interactivity (requires additional technologies like JavaScript, PHP, SQL), and cannot create dynamic pages on its own.
+      </p>
+    </section>
+    
+    <!-- HTML Tags and Attributes -->
+    <section>
+      <h2>HTML Tags and Attributes</h2>
+      <p>
+        HTML tags are instructions given to the web browser, enclosed in angle brackets (<code>&lt; &gt;</code>). There are two types:
+      </p>
+      <ul>
+        <li><strong>Pair Tags:</strong> Have both opening and closing tags (e.g., <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code>).</li>
+        <li><strong>Singular Tags:</strong> Have only an opening tag (e.g., <code>&lt;br&gt;</code>).</li>
+      </ul>
+      <p>
+        <strong>Attributes:</strong> Provide additional information about elements (e.g., <code>bgcolor</code>, <code>text</code>, <code>background</code>).
+      </p>
+      <p>
+        <strong>Steps to Write an HTML Document:</strong>
+      </p>
+      <ol>
+        <li>Write HTML tags and attributes in a text editor.</li>
+        <li>Save the file with a .html extension (e.g., sample.html).</li>
+        <li>Open the file using a web browser to view the page.</li>
+      </ol>
+      <p>
+        <strong>Common Web Design Terminologies:</strong>
+      </p>
+      <ul>
+        <li><strong>Webpage:</strong> An HTML document displaying content via a browser.</li>
+        <li><strong>Website:</strong> A collection of interrelated webpages connected through hyperlinks.</li>
+        <li><strong>Home Page:</strong> The introductory page of a website.</li>
+        <li><strong>Web Browser:</strong> Software (e.g., Chrome, Firefox) used to access web content.</li>
+        <li><strong>URL:</strong> A unique address that identifies a resource on the Internet.</li>
+      </ul>
+    </section>
+    
+    <!-- DBMS Section -->
+    <section>
+      <h2>DBMS (Database Management System)</h2>
+      <p>
+        A DBMS is a software system that stores, organizes, and processes data to produce meaningful information. A database is an organized collection of data that allows for quick retrieval and manipulation. Examples include dictionaries, mark ledgers, census data, and telephone directories.
+      </p>
+      <p>
+        <strong>Advantages/Features/Importance:</strong>
+      </p>
+      <ul>
+        <li>Quick and easy data search.</li>
+        <li>Reduces data redundancy.</li>
+        <li>Facilitates data sharing over a network.</li>
+        <li>Enhances data security and privacy.</li>
+        <li>Provides an organized method of storing data.</li>
+      </ul>
+      <p>
+        <strong>Disadvantages:</strong>
+      </p>
+      <ul>
+        <li>Higher installation and operating cost.</li>
+        <li>Requires more disk space.</li>
+        <li>May have security and privacy issues.</li>
+        <li>Requires technical manpower (DBA) for maintenance.</li>
+      </ul>
+    </section>
+    
+    <!-- CSS Section -->
+    <section>
+      <h2>CSS: Define and Explain Its Types</h2>
+      <p>
+        <strong>CSS (Cascading Style Sheets):</strong> CSS is a style sheet language used for describing the presentation of a document written in HTML or XML. It controls layout, colors, fonts, and overall visual appearance.
+      </p>
+      <p>
+        There are three types of CSS:
+      </p>
+      <ul>
+        <li><strong>Inline CSS:</strong> Styles applied directly to an element using the <code>style</code> attribute.</li>
+        <li><strong>Internal CSS:</strong> Styles defined within the <code>&lt;style&gt;</code> tag in the HTML document's head section.</li>
+        <li><strong>External CSS:</strong> Styles defined in a separate .css file, linked to the HTML document.</li>
+      </ul>
+      <p>
+        <a href="#">Click here for more details on CSS.</a>
+      </p>
+    </section>
+  </main>
+  <div class="back-link">
+    <a href="home.html">&laquo; Back to Home</a>
+  </div>
+  <footer>
+    <p>&copy; 2025 NEB Class 11 Computer Science</p>
+  </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <title>Chapter 6: Web Technology-I (HTML + CSS)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
