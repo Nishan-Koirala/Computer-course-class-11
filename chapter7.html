@@ -7,6 +7,216 @@
   <style>
     /* Base Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
+    
+    /* Header with Persistent Menu */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; }
+    details { position: relative; }
+    summary {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      margin-right: 8px;
+      background: transparent;
+      border: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .line {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .menu-text { font-size: 1rem; font-weight: bold; color: #fff; }
+    nav {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #34495e;
+      width: 240px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    nav ul { list-style: none; }
+    nav li { border-bottom: 1px solid #2c3e50; }
+    nav li a {
+      display: block;
+      padding: 10px 15px;
+      color: #ecf0f1;
+      transition: background 0.3s;
+    }
+    nav li a:hover { background: #2c3e50; }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 950px;
+      margin: 100px auto 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
+    h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    h3 { font-size: 1.2rem; margin: 15px 0 10px; }
+    p { margin-bottom: 15px; text-align: justify; }
+    ul, ol { margin-left: 20px; margin-bottom: 15px; }
+    li { margin-bottom: 8px; }
+    table { border-collapse: collapse; margin: 15px 0; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    
+    /* Figure styling (if needed) */
+    .diagram { display: block; max-width: 100%; margin: 20px auto; }
+    
+    /* Back to Home Link */
+    .back-link { text-align: center; margin-top: 20px; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
+    .back-link a:hover { text-decoration: underline; }
+    
+    /* Footer */
+    footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <details open>
+        <summary>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology - I</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <h1>Chapter 7: Multimedia</h1>
+    
+    <!-- Introduction -->
+    <section>
+      <h2>Introduction</h2>
+      <p>
+        Multimedia consists of two words: ‘Multi’ meaning many and ‘Media’ meaning a way or medium of expressing information. Hence, multimedia is the method of expressing information in different forms. Information can be expressed through text, audio, video, graphics, and animation. Using various media forms allows for better understanding and effective communication.
+      </p>
+      <p>
+        Since a single form of media is often insufficient for clear communication, multimedia integrates multiple components (text, audio, video, animation, and graphics) using a multimedia computer system. This system comprises both multimedia hardware and software—for example, printers, projectors, webcams, microphones, digital cameras, as well as software like MS Word, PowerPoint, Photoshop, iMovie, and Tally. These components work together so that, for example, a video can be created by integrating audio and images.
+      </p>
+    </section>
+    
+    <!-- Advantages and Disadvantages -->
+    <section>
+      <h2>Advantages/Merits/Pros/Importance of Multimedia</h2>
+      <ul>
+        <li>Enhances the effectiveness of communication.</li>
+        <li>Improves understanding of topics.</li>
+        <li>Makes games, cartoons, and movies more realistic.</li>
+        <li>Makes the teaching and learning process more interesting and intuitive.</li>
+        <li>Enables more realistic virtual reality and simulation.</li>
+      </ul>
+      <h2>Disadvantages/De-merits/Cons/Limitation of Multimedia</h2>
+      <ul>
+        <li>Multimedia components can be expensive.</li>
+        <li>Technical knowledge and IT literacy are required to operate multimedia systems.</li>
+        <li>Technology is always changing, making it difficult to maintain consistency.</li>
+        <li>Multimedia devices run on electricity.</li>
+      </ul>
+    </section>
+    
+    <!-- Components/Elements -->
+    <section>
+      <h2>Components/Elements of Multimedia</h2>
+      <ul>
+        <li>
+          <strong>Text:</strong> A collection of alphanumeric characters that can form words, lines, or paragraphs. Text is created and customized using word processors like MS Word or Notepad. Document extensions include .docx and .txt.
+        </li>
+        <li>
+          <strong>Graphics/Images:</strong> Images can convey information more vividly than text. The smallest element is a pixel. Image quality is determined by resolution. Graphics are created using software like Adobe Photoshop, CorelDRAW, or Adobe InDesign. Common extensions: .jpeg, .png.
+        </li>
+        <li>
+          <strong>Audio:</strong> Provides the sense of hearing. Audio enhances understanding and can include human voice, musical notes, natural sounds, or digitally synthesized sound. Audio files are played using media players. Extensions include .mp3 and .wma.
+        </li>
+        <li>
+          <strong>Video:</strong> A sequence of frames (static images) shown in rapid succession to create motion. Frame rate (FPS) affects smoothness; standards include 15-25 FPS, 30 FPS, and 60 FPS. Video editing software includes iMovie, Final Cut Pro, and Filmora. Extensions include .mp4 and .mpeg.
+        </li>
+        <li>
+          <strong>Animation:</strong> A sequence of computer-generated images (vector or raster) displayed in rapid succession to create movement. Animation can be 2D or 3D; 3D animations are more realistic. Created using tools such as Maya, AutoCAD, or Adobe Flash. Extensions include .flv and .gif.
+        </li>
+      </ul>
+      <h2>Application Areas of Multimedia</h2>
+      <p>
+        Multimedia is applied in various fields, including:
+      </p>
+      <ul>
+        <li>Education</li>
+        <li>Communication</li>
+        <li>Entertainment</li>
+        <li>Medicine</li>
+        <li>Science and Technology</li>
+        <li>Advertisement</li>
+        <li>Websites/Webpages</li>
+        <li>Research and Engineering</li>
+      </ul>
+    </section>
+  </main>
+  <div class="back-link">
+    <a href="home.html">&laquo; Back to Home</a>
+  </div>
+  <footer>
+    <p>&copy; 2025 NEB Class 11 Computer Science</p>
+  </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 7: Multimedia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #f7f7f7; color: #333; padding: 20px; }
     header { background: #2c3e50; color: #fff; padding: 15px; text-align: center; }
     main { max-width: 800px; margin: 80px auto 20px auto; background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
