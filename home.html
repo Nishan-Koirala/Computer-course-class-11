@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NEB Class 11 Computer Science</title>
+  <title>NEB Class 11 Computer Science - Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* Reset & Base Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #f7f7f7; color: #333; }
     a { text-decoration: none; color: inherit; }
+    
     /* Header */
     header {
       background: #2c3e50;
@@ -17,38 +18,51 @@
       position: fixed;
       width: 100%;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .header-left {
       display: flex;
       align-items: center;
     }
-    header h1 { margin-left: 15px; font-size: 1.5rem; }
-    /* Hamburger Menu (always visible) */
-    details { position: relative; }
+    details {
+      position: relative;
+    }
     summary {
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      width: 30px;
-      height: 25px;
+      width: 25px;
+      height: 20px;
+      margin-right: 8px;
       background: transparent;
+      border: none;
     }
     summary::-webkit-details-marker { display: none; }
     summary .line {
       width: 100%;
-      height: 3px;
+      height: 2px;
       background: #fff;
-      border-radius: 2px;
+      border-radius: 1px;
     }
-    /* Navigation Menu */
+    .menu-text {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #fff;
+    }
     nav {
       position: absolute;
-      top: 40px;
+      top: 45px;
       left: 0;
       background: #34495e;
       width: 240px;
-      border-radius: 5px;
-      overflow: hidden;
+      max-height: 300px;
+      overflow-y: auto;
+      border-radius: 0 0 5px 5px;
     }
     nav ul { list-style: none; }
     nav li { border-bottom: 1px solid #2c3e50; }
@@ -59,85 +73,92 @@
       transition: background 0.3s;
     }
     nav li a:hover { background: #2c3e50; }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    
     /* Main Content */
     main {
-      padding: 80px 20px 20px;
       max-width: 1000px;
-      margin: 0 auto;
-    }
-    .hero {
-      background: #2980b9;
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-      border-radius: 5px;
-      margin-bottom: 20px;
-    }
-    .toc {
-      background: #fff;
+      margin: 80px auto 20px;
       padding: 20px;
+      background: #fff;
       border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
-    .toc h2 { margin-bottom: 10px; }
-    .toc ul { list-style: decimal inside; }
-    .toc li { margin-bottom: 8px; }
+    h1 { font-size: 2.2rem; margin-bottom: 20px; text-align: center; }
+    h2 { font-size: 1.6rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    p { margin-bottom: 15px; text-align: justify; }
+    ol, ul { margin-left: 20px; margin-bottom: 15px; }
+    
     /* Footer */
     footer {
+      text-align: center;
+      margin: 20px auto;
+      padding: 10px;
       background: #2c3e50;
       color: #fff;
-      text-align: center;
-      padding: 10px;
-      margin-top: 20px;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      max-width: 1000px;
     }
+    
+    /* Ensure content is not hidden by header */
+    body { padding-top: 70px; }
   </style>
 </head>
 <body>
-  <!-- Header with Hamburger Menu -->
   <header>
-    <details open>
-      <summary>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </summary>
-      <nav>
-        <ul>
-          <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
-          <li><a href="chapter2.html">Chapter 2: Number System & Boolean Logic</a></li>
-          <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
-          <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
-          <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
-          <li><a href="chapter6.html">Chapter 6: Web Technology-I (HTML + CSS)</a></li>
-          <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
-          <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
-        </ul>
-      </nav>
-    </details>
-    <h1>NEB Class 11 Computer Science</h1>
+    <div class="header-left">
+      <details>
+        <summary>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology - I</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
   </header>
   
-  <!-- Main Content Area -->
   <main>
-    <section class="hero">
-      <h2>Welcome to NEB Class 11 Computer Science</h2>
+    <h1>NEB Class 11 Computer Science</h1>
+    <section>
+      <h2>Welcome</h2>
       <p>
-        This website covers the complete Computer Science curriculum for NEB Class 11. Click on any chapter below to explore detailed lessons and topics.
+        Welcome to the NEB Class 11 Computer Science website. Explore detailed chapters on Computer System, Number Systems, Software, Application Packages, Programming Concepts, Web Technology, Multimedia, and Information Security & Cyber Law.
       </p>
     </section>
-    <section class="toc">
+    <section>
       <h2>Table of Contents</h2>
-      <ul>
+      <ol>
         <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
-        <li><a href="chapter2.html">Chapter 2: Number System & Boolean Logic</a></li>
+        <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
         <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
         <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
         <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
-        <li><a href="chapter6.html">Chapter 6: Web Technology-I (HTML + CSS)</a></li>
+        <li><a href="chapter6.html">Chapter 6: Web Technology - I</a></li>
         <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
         <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
-      </ul>
+      </ol>
     </section>
   </main>
   
