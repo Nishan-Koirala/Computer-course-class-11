@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1: Computer System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Reset & Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
+    
+    /* Header */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+    .hamburger-container {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    /* Hamburger Icon with Menu label */
+    details {
+      position: relative;
+    }
+    summary {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      margin-right: 8px;
+      background: transparent;
+      border: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .line {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .menu-text {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    /* Navigation Menu (from Hamburger) */
+    nav {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #34495e;
+      width: 240px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    nav ul { list-style: none; }
+    nav li { border-bottom: 1px solid #2c3e50; }
+    nav li a {
+      display: block;
+      padding: 10px 15px;
+      color: #ecf0f1;
+      transition: background 0.3s;
+    }
+    nav li a:hover { background: #2c3e50; }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 900px;
+      margin: 100px auto 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
+    h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    h3 { font-size: 1.2rem; margin: 15px 0 10px; }
+    p { margin-bottom: 15px; text-align: justify; }
+    ul, ol { margin-left: 20px; margin-bottom: 15px; }
+    li { margin-bottom: 8px; }
+    table { border-collapse: collapse; margin: 15px 0; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    
+    /* Figure Styling */
+    .diagram {
+      display: block;
+      max-width: 100%;
+      margin: 20px auto;
+    }
+    
+    /* Back Link */
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back-link a {
+      color: #2980b9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-link a:hover { text-decoration: underline; }
+    
+    /* Footer */
+    footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <details open>
+        <summary>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology-I (HTML + CSS)</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <h1>Chapter 1: Computer System</h1>
+    <!-- Introduction -->
+    <section>
+      <h2>Introduction</h2>
+      <p>
+        Computer is an electronic device derived from the Latin word "computere" which means to calculate. It accepts raw facts and figures as input through an input device, processes it as per the user's command, stores it before and after processing as required, and produces meaningful information as output through an output device. Generally, a computer works on the IPO (Input-Process-Output) cycle and follows the GIGO (Garbage In, Garbage Out) principle.
+      </p>
+      <!-- Figure: Replace with your actual image file -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Von_Neumann_Architecture.svg/1200px-Von_Neumann_Architecture.svg.png" alt="Block diagram of Computer / Von Neumann Architecture" class="diagram">
+      <p style="text-align: center; font-style: italic;">
+        Fig: Block diagram of Computer / Von Neumann Architecture
+      </p>
+    </section>
+    
+    <!-- Characteristics/Features -->
+    <section>
+      <h2>Some Characteristics/Features of Computer</h2>
+      <p>
+        Computers are used for tasks ranging from simple domestic work to complex scientific research and engineering. Their use is growing day-by-day due to unique features, including:
+      </p>
+      <ul>
+        <li><strong>Accuracy:</strong> They produce 100% accurate results (errors are due to human input as per GIGO).</li>
+        <li><strong>Speed:</strong> Operating speeds are measured in milliseconds, microseconds, picoseconds, and nanoseconds, allowing them to perform millions or billions of instructions per second.</li>
+        <li><strong>Storage:</strong> Capable of storing vast amounts of data for present and future use, with memory measured in Megabytes, Gigabytes, Terabytes, and Petabytes.</li>
+        <li><strong>Versatility:</strong> Designed to serve multiple purposes and solve various user requirements.</li>
+        <li><strong>Diligence:</strong> Can perform tasks continuously without fatigue.</li>
+        <li><strong>Automatic:</strong> Once given an instruction, they operate automatically without the need for continuous commands.</li>
+      </ul>
+    </section>
+    
+    <!-- Applications -->
+    <section>
+      <h2>Applications/Implementations/Uses of Computer</h2>
+      <p>
+        Computers impact every aspect of human life. Their applications include:
+      </p>
+      <ul>
+        <li><strong>Education:</strong> Used in teaching and learning; interactive graphics and internet access enhance education.</li>
+        <li><strong>Communication:</strong> Facilitate email, chat, online conferencing, and e-fax, making communication faster and cheaper.</li>
+        <li><strong>Business:</strong> Generate invoices, maintain stock, perform statistical analysis, and support e-commerce.</li>
+        <li><strong>Engineering & Designing:</strong> Perform complex computations required for designing infrastructure and machinery.</li>
+        <li>Science and research</li>
+        <li>Military</li>
+        <li>Industry</li>
+        <li>Medicine</li>
+        <li>Robotics</li>
+        <li>Transportation</li>
+      </ul>
+    </section>
+    
+    <!-- Capabilities and Limitations -->
+    <section>
+      <h2>Capabilities and Limitations of Computer (Pros and Cons)</h2>
+      <h3>Advantages:</h3>
+      <ul>
+        <li>Handles large volumes of data and stores vast amounts of information.</li>
+        <li>Performs millions of instructions quickly with consistent speed and accuracy.</li>
+        <li>Efficiently meets general user requirements.</li>
+        <li>Provides faster and cost-effective communication.</li>
+        <li>Solves complex problems that are beyond human capability.</li>
+      </ul>
+      <h3>Limitations:</h3>
+      <ul>
+        <li>Cannot make decisions on their own.</li>
+        <li>Require electricity or battery power to operate.</li>
+        <li>Extended use can strain the human eye.</li>
+        <li>Depend on multiple peripheral devices and software.</li>
+        <li>Cannot think, learn, or react like a human without programming.</li>
+        <li>Unable to draw conclusions or provide feedback independently.</li>
+      </ul>
+    </section>
+    
+    <!-- Generations -->
+    <section>
+      <h2>Generations of Computers</h2>
+      <ol>
+        <li>
+          <strong>First Generation (1946-1958):</strong> Utilized vacuum tubes; large, high power consumption, and unreliable. Machine-level languages were used.
+          <br><em>Examples: ENIAC, EDVAC, EDSAC, UNIVAC</em>
+        </li>
+        <li>
+          <strong>Second Generation (1959-1964):</strong> Used transistors; smaller, more reliable, and energy-efficient. Assembly language was used.
+          <br><em>Examples: IBM 7000, IBM 1401, IBM 1620, NCR 304, MARK III, ATLAS</em>
+          <br><em>[Note: The first computer in Nepal was IBM 1401 (2028 BS)]</em>
+        </li>
+        <li>
+          <strong>Third Generation (1965-1974):</strong> Introduced Integrated Circuits (ICs); computers became smaller, faster, and more reliable. High-level languages were used.
+          <br><em>Examples: PDP-8, PDP-11, ICL 2900 series, IBM 360, IBM 370</em>
+        </li>
+        <li>
+          <strong>Fourth Generation (1975-1990):</strong> Employed VLSI; more portable, faster processing, and larger memory.
+          <br><em>Examples: Apple Macintosh, IBM PC</em>
+        </li>
+        <li>
+          <strong>Fifth Generation (1990-onwards):</strong> Uses ULSIC or microprocessors with artificial intelligence, parallel processing, and advanced functionalities.
+        </li>
+      </ol>
+    </section>
+    
+    <!-- Introduction to Computer System -->
+    <section>
+      <h2>Introduction to Computer System</h2>
+      <p>
+        The term "system" refers to the integration of several independent units working together to achieve a common goal. A computer system is a combination of hardware, software, and peripherals that work collectively via the IPO (Input-Process-Output) cycle. If one unit fails, the entire system is affected.
+      </p>
+      <p>
+        Computer architecture is the conceptual design and operational structure of a computer system. It involves selecting and interconnecting hardware components to achieve desired performance and cost objectives.
+      </p>
+    </section>
+    
+    <!-- Components/Elements -->
+    <section>
+      <h2>Components/Elements of a Computer System</h2>
+      <p>A computer system consists of several fundamental elements:</p>
+      <ol>
+        <li><strong>Hardware:</strong> Input, Output, Processing, and Storage devices.</li>
+        <li><strong>Software:</strong> Programs that instruct the hardware.</li>
+        <li><strong>Data/Information:</strong> Raw facts that, when processed, become meaningful information.</li>
+        <li><strong>Procedure:</strong> Steps and guidelines to convert raw data into information.</li>
+        <li><strong>People/User:</strong> The individuals who operate the hardware and create software.</li>
+        <li><strong>Communication:</strong> The exchange of data among system components via electronic signals.</li>
+      </ol>
+      <h3>Hardware Details</h3>
+      <p>
+        Hardware includes input devices (keyboard, mouse, scanner, etc.), output devices (monitor, printer, speakers, etc.), the CPU (processing unit), and storage devices (RAM, hard disk, etc.).
+      </p>
+      <h3>Software Details</h3>
+      <p>
+        Software is a set of instructions or programs that control hardware. Examples include operating systems, MS-Office, and billing software.
+      </p>
+    </section>
+    
+    <!-- Input/Output Units -->
+    <section>
+      <h2>Basic Hardware Components</h2>
+      <ol>
+        <li><strong>Input Unit</strong></li>
+        <li><strong>Output Unit</strong></li>
+        <li><strong>Processing Unit</strong></li>
+        <li><strong>Storage Unit</strong></li>
+      </ol>
+      
+      <h3>Input Unit</h3>
+      <p>
+        Data and instructions enter the computer system via the input unit. It converts these inputs into binary code and supplies them to the system for processing. Functions include:
+      </p>
+      <ol>
+        <li>Accepting data and instructions from external sources.</li>
+        <li>Converting data into a binary format.</li>
+        <li>Passing the converted data to the computer for processing.</li>
+      </ol>
+      <p>
+        Common input devices: Keyboard, trackpad, touchscreen, mouse, light pen, scanner, BCR, MICR, OCR, joystick, and trackball.
+      </p>
+      
+      <h3>Output Unit</h3>
+      <p>
+        The output unit converts processed binary data into a human-readable form. Its functions include:
+      </p>
+      <ol>
+        <li>Accepting results from the computer.</li>
+        <li>Converting results into human-understandable form.</li>
+        <li>Delivering the output to the user or external devices.</li>
+      </ol>
+      <p>
+        Common output devices: Monitor, printer, speaker, plotter.
+      </p>
+      <ul>
+        <li><strong>Hard Copy Output:</strong> Printed output (e.g., from printers, plotters).</li>
+        <li><strong>Soft Copy Output:</strong> Output displayed on screens or as sound (e.g., monitors, speakers).</li>
+      </ul>
+    </section>
+    
+    <!-- Impact vs Non-Impact Printers -->
+    <section>
+      <h2>Differences between Impact and Non-Impact Printers</h2>
+      <table>
+        <tr>
+          <th>Impact Printer</th>
+          <th>Non-Impact Printer</th>
+        </tr>
+        <tr>
+          <td>Uses an electro-mechanical mechanism (hammers or pins strike a ribbon and paper).</td>
+          <td>Uses thermal, chemical, electrostatic, laser, or inkjet technology.</td>
+        </tr>
+        <tr>
+          <td>Slow printing speed.</td>
+          <td>Faster printing speed.</td>
+        </tr>
+        <tr>
+          <td>Produces more noise due to forceful printing.</td>
+          <td>Produces less noise.</td>
+        </tr>
+        <tr>
+          <td>Cannot print graphics perfectly.</td>
+          <td>Can print graphics perfectly.</td>
+        </tr>
+        <tr>
+          <td>Usually prints in a single color.</td>
+          <td>Can print in single or multiple colors.</td>
+        </tr>
+        <tr>
+          <td>Rarely used at present.</td>
+          <td>Widely used currently.</td>
+        </tr>
+        <tr>
+          <td>Examples: Dot matrix printer, Typewriter.</td>
+          <td>Examples: Inkjet printer, Laser printer.</td>
+        </tr>
+      </table>
+    </section>
+    
+    <!-- CPU Section -->
+    <section>
+      <h2>Central Processing Unit (CPU)</h2>
+      <p>
+        The CPU is the brain of the computer. It processes commands, coordinates with other components, controls the operation sequence, and assists in memory allocation. It consists of:
+      </p>
+      <ul>
+        <li><strong>Arithmetic Logic Unit (ALU):</strong> Performs arithmetic and logical operations.</li>
+        <li><strong>Control Unit (CU):</strong> Directs and coordinates computer operations.</li>
+        <li><strong>Memory Unit (MU):</strong> Temporarily stores data and instructions during processing.</li>
+      </ul>
+    </section>
+    
+    <!-- Memory Section -->
+    <section>
+      <h2>Memory: Primary and Secondary</h2>
+      <h3>Primary Memory/Main Memory</h3>
+      <p>
+        Primary memory is used to store data and instructions temporarily while the computer processes them. It is volatile (except ROM) and faster, though more expensive and limited in storage capacity.
+      </p>
+      <ol>
+        <li>
+          <strong>RAM (Random Access Memory):</strong>
+          <ul>
+            <li><strong>SRAM (Static RAM):</strong> Faster and does not require refreshment but uses more power.</li>
+            <li><strong>DRAM (Dynamic RAM):</strong> Requires periodic refreshment, consumes less power, and is less expensive but slower than SRAM.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>ROM (Read Only Memory):</strong> Non-volatile memory that stores data permanently. Types include:
+          <ul>
+            <li><strong>PROM:</strong> Programmable once.</li>
+            <li><strong>EPROM:</strong> Erasable with ultraviolet light.</li>
+            <li><strong>EEPROM:</strong> Electrically erasable and reprogrammable.</li>
+          </ul>
+        </li>
+      </ol>
+      
+      <h3>Secondary Memory/Auxiliary Memory</h3>
+      <p>
+        Secondary memory stores data permanently even when power is off. It offers high capacity and includes:
+      </p>
+      <ul>
+        <li><strong>Magnetic Storage:</strong> Hard disks, floppy disks.</li>
+        <li><strong>Optical Storage:</strong> CD-ROMs, DVDs, Blu-Ray discs.</li>
+        <li><strong>Flash Memory:</strong> Memory cards, pen-drives.</li>
+      </ul>
+    </section>
+    
+    <!-- Classification by Size Section -->
+    <section>
+      <h2>Classification of Computers Based on Size</h2>
+      <p>
+        Technological advancements have reduced computer sizes. Based on size, computers are classified as:
+      </p>
+      <ul>
+        <li><strong>Super Computer:</strong> Extremely fast and powerful; used for weather forecasting, rocket launching, etc.</li>
+        <li><strong>Mainframe Computer:</strong> Very large and expensive; used for massive processing tasks like census processing.</li>
+        <li><strong>Mini Computer:</strong> Intermediate in size; used in medium-sized businesses and universities.</li>
+        <li><strong>Micro Computer:</strong> The smallest, also known as personal computers. These include:
+          <ul>
+            <li><strong>Desktop:</strong> Fits on a desk.</li>
+            <li><strong>Laptop:</strong> Portable with battery backup.</li>
+            <li><strong>Palmtop/Handheld:</strong> Extremely portable devices like tablets and smartphones.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    
+    <!-- End Content -->
+  </main>
+  <div class="back-link">
+    <a href="home.html">&laquo; Back to Home</a>
+  </div>
+  <footer>
+    <p>&copy; 2025 NEB Class 11 Computer Science</p>
+  </footer>
+</body>
+</html>

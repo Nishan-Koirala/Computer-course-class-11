@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 2: Number System, Conversion and Boolean Logic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
+    
+    /* Header with Hamburger Menu */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; }
+    details { position: relative; }
+    summary {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      margin-right: 8px;
+      background: transparent;
+      border: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .line {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .menu-text { font-size: 1rem; font-weight: bold; color: #fff; }
+    nav {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #34495e;
+      width: 240px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    nav ul { list-style: none; }
+    nav li { border-bottom: 1px solid #2c3e50; }
+    nav li a {
+      display: block;
+      padding: 10px 15px;
+      color: #ecf0f1;
+      transition: background 0.3s;
+    }
+    nav li a:hover { background: #2c3e50; }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 950px;
+      margin: 100px auto 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
+    h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    h3 { font-size: 1.2rem; margin: 15px 0 10px; }
+    p { margin-bottom: 15px; text-align: justify; }
+    ul, ol { margin-left: 20px; margin-bottom: 15px; }
+    li { margin-bottom: 8px; }
+    table { border-collapse: collapse; margin: 15px 0; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    
+    /* Figure Styling */
+    .diagram { display: block; max-width: 100%; margin: 20px auto; }
+    
+    /* Back to Home Link */
+    .back-link { text-align: center; margin-top: 20px; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
+    .back-link a:hover { text-decoration: underline; }
+    
+    /* Footer */
+    footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <details open>
+        <summary>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology-I (HTML + CSS)</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <h1>Chapter 2: Number System, Conversion and Boolean Logic</h1>
+    
+    <!-- 1's and 2's Complement -->
+    <section>
+      <h2>1's and 2's Complement</h2>
+      <p>
+        <strong>1's Complement:</strong> The reciprocal of 1s to 0s and 0s to 1s is its 1's complement. For example, the 1's Complement of (1011)<sup>2</sup> is (0100)<sup>2</sup>.
+      </p>
+      <p>
+        <strong>2's Complement:</strong> Adding 1 to the 1's complement of a given binary number is its 2's complement.
+      </p>
+      <p>
+        For example, if (1010)<sup>2</sup> is given:
+      </p>
+      <ul>
+        <li>1's complement is (0101)<sup>2</sup></li>
+        <li>2's complement is (0101)<sup>2</sup> + (1)<sup>2</sup> = (0110)<sup>2</sup></li>
+      </ul>
+    </section>
+    
+    <!-- Subtraction using Complements -->
+    <section>
+      <h2>Subtraction using 1's and 2's Complement</h2>
+      <p><strong>Rules (for X - Y):</strong></p>
+      <table>
+        <tr>
+          <th>Using 1's Complement</th>
+          <th>Using 2's Complement</th>
+        </tr>
+        <tr>
+          <td>Calculate 1's complement of Y</td>
+          <td>Calculate 2's complement of Y</td>
+        </tr>
+        <tr>
+          <td>Add the result to X</td>
+          <td>Add the result to X</td>
+        </tr>
+        <tr>
+          <td>If an extra bit exists, remove it and add it to the remaining bits</td>
+          <td>If an extra bit exists, remove it</td>
+        </tr>
+        <tr>
+          <td>If no extra bit, take the 1's complement of the result and assign a negative sign</td>
+          <td>If no extra bit, take the 2's complement of the result and assign a negative sign</td>
+        </tr>
+      </table>
+      <p><strong>Example 1:</strong> Subtract (1000)<sup>2</sup> from (111)<sup>2</sup></p>
+      <p>
+        <em>Using 1's Complement:</em>  
+        1's complement of (1000)<sup>2</sup> is (0111)<sup>2</sup>.  
+        Adding (0111)<sup>2</sup> to (111)<sup>2</sup> gives (1110)<sup>2</sup>.  
+        Since there is no extra bit, the 1's complement of (1110)<sup>2</sup> is (0001)<sup>2</sup>; assign a negative sign to yield –(0001)<sup>2</sup>.
+      </p>
+      <p>
+        <em>Using 2's Complement:</em>  
+        2's complement of (1000)<sup>2</sup> is (0111)<sup>2</sup> + (1)<sup>2</sup> = (1000)<sup>2</sup>.  
+        Adding (1000)<sup>2</sup> to (111)<sup>2</sup> gives (1111)<sup>2</sup>.  
+        Taking the 2's complement of (1111)<sup>2</sup> yields (0001)<sup>2</sup>; assign a negative sign to get –(0001)<sup>2</sup>.
+      </p>
+      <p><strong>Example 2:</strong> Subtract (11001)<sup>2</sup> from (11101)<sup>2</sup></p>
+      <p>
+        <em>Using 1's Complement:</em>  
+        1's complement of (11001)<sup>2</sup> is (00110)<sup>2</sup>.  
+        Adding (00110)<sup>2</sup> to (11101)<sup>2</sup> gives (100011)<sup>2</sup>.  
+        Remove the extra bit: (00011)<sup>2</sup> + (1)<sup>2</sup> = (00100)<sup>2</sup>; thus, the result is (00100)<sup>2</sup>.
+      </p>
+      <p>
+        <em>Using 2's Complement:</em>  
+        2's complement of (11001)<sup>2</sup> is (00110)<sup>2</sup> + (1)<sup>2</sup> = (00111)<sup>2</sup>.  
+        Adding (00111)<sup>2</sup> to (11101)<sup>2</sup> gives (100100)<sup>2</sup>.  
+        Removing the extra bit yields (00100)<sup>2</sup>; hence, the result is (00100)<sup>2</sup>.
+      </p>
+      <p>
+        <a href="#">Click here for more solved examples.</a>
+      </p>
+    </section>
+    
+    <!-- Introduction to Boolean Logic -->
+    <section>
+      <h2>Introduction: Boolean Logic</h2>
+      <p>
+        Boolean Algebra is the algebra of logic, dealing with binary variables and logical operations. Since all data is represented in binary (0 and 1), Boolean algebra is used to manipulate these values through defined rules and expressions. Introduced by George Boole, it forms the foundation for analyzing and designing logic circuits.
+      </p>
+      <p>
+        In Boolean algebra, variables can only have two possible values: 0 (False) and 1 (True).
+      </p>
+    </section>
+    
+    <!-- Boolean Operators and Logic Gates -->
+    <section>
+      <h2>Boolean Operators and Logic Gates</h2>
+      <p>The basic operators are:</p>
+      <ol>
+        <li>
+          <strong>AND Operator:</strong> Represented by a dot (A·B). It yields 1 only if both A and B are 1.
+          <br><em>Truth Table:</em><br>
+          A&nbsp;&nbsp;B&nbsp;&nbsp;Y = A·B<br>
+          0&nbsp;&nbsp;0&nbsp;&nbsp;0<br>
+          0&nbsp;&nbsp;1&nbsp;&nbsp;0<br>
+          1&nbsp;&nbsp;0&nbsp;&nbsp;0<br>
+          1&nbsp;&nbsp;1&nbsp;&nbsp;1
+        </li>
+        <li>
+          <strong>OR Operator:</strong> Represented by a plus (A+B). It yields 0 only if both A and B are 0.
+          <br><em>Truth Table:</em><br>
+          A&nbsp;&nbsp;B&nbsp;&nbsp;Y = A+B<br>
+          0&nbsp;&nbsp;0&nbsp;&nbsp;0<br>
+          0&nbsp;&nbsp;1&nbsp;&nbsp;1<br>
+          1&nbsp;&nbsp;0&nbsp;&nbsp;1<br>
+          1&nbsp;&nbsp;1&nbsp;&nbsp;1
+        </li>
+        <li>
+          <strong>NOT Operator:</strong> Represented by a prime (A'). It inverts the input.
+          <br><em>Truth Table:</em><br>
+          A&nbsp;&nbsp;A'<br>
+          0&nbsp;&nbsp;1<br>
+          1&nbsp;&nbsp;0
+        </li>
+        <li>
+          <strong>NAND Gate:</strong> Output is the complement of the AND gate. Represented as Y = (A·B)'.
+          <br><em>Truth Table:</em><br>
+          A&nbsp;&nbsp;B&nbsp;&nbsp;Y<br>
+          0&nbsp;&nbsp;0&nbsp;&nbsp;1<br>
+          0&nbsp;&nbsp;1&nbsp;&nbsp;1<br>
+          1&nbsp;&nbsp;0&nbsp;&nbsp;1<br>
+          1&nbsp;&nbsp;1&nbsp;&nbsp;0
+        </li>
+        <li>
+          <strong>NOR Gate:</strong> Output is the complement of the OR gate. Represented as Y = (A+B)'.
+          <br><em>Truth Table:</em><br>
+          A&nbsp;&nbsp;B&nbsp;&nbsp;Y<br>
+          0&nbsp;&nbsp;0&nbsp;&nbsp;1<br>
+          0&nbsp;&nbsp;1&nbsp;&nbsp;0<br>
+          1&nbsp;&nbsp;0&nbsp;&nbsp;0<br>
+          1&nbsp;&nbsp;1&nbsp;&nbsp;0
+        </li>
+        <li>
+          <strong>Exclusive OR (XOR):</strong> Yields 1 only when exactly one input is 1.
+          <br><em>Algebraically:</em> Y = A'·B + A·B'
+          <br><em>Truth Table:</em><br>
+          A&nbsp;&nbsp;B&nbsp;&nbsp;Y<br>
+          0&nbsp;&nbsp;0&nbsp;&nbsp;0<br>
+          0&nbsp;&nbsp;1&nbsp;&nbsp;1<br>
+          1&nbsp;&nbsp;0&nbsp;&nbsp;1<br>
+          1&nbsp;&nbsp;1&nbsp;&nbsp;0
+        </li>
+        <li>
+          <strong>Exclusive NOR (XNOR):</strong> Yields 1 when both inputs are the same.
+          <br><em>Algebraically:</em> Y = A·B + A'·B'
+          <br><em>Truth Table:</em><br>
+          A&nbsp;&nbsp;B&nbsp;&nbsp;Y<br>
+          0&nbsp;&nbsp;0&nbsp;&nbsp;1<br>
+          0&nbsp;&nbsp;1&nbsp;&nbsp;0<br>
+          1&nbsp;&nbsp;0&nbsp;&nbsp;0<br>
+          1&nbsp;&nbsp;1&nbsp;&nbsp;1
+        </li>
+      </ol>
+    </section>
+    
+    <!-- De-Morgan's Theorem -->
+    <section>
+      <h2>De-Morgan's Theorem</h2>
+      <h3>First Theorem</h3>
+      <p>
+        The De-Morgan's first theorem states that “The complement of a sum equals the product of its complements.”
+      </p>
+      <p style="text-align: center;"><strong>(A+B)' = A'·B'</strong></p>
+      <p><strong>Proof (Truth Table):</strong></p>
+      <table>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>(A+B)</th>
+          <th>(A+B)'</th>
+          <th>A'</th>
+          <th>B'</th>
+          <th>A'·B'</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </table>
+      
+      <h3>Second Theorem</h3>
+      <p>
+        The De-Morgan's second theorem states that “The complement of a product equals the sum of its complements.”
+      </p>
+      <p style="text-align: center;"><strong>(A·B)' = A' + B'</strong></p>
+      <p><strong>Proof (Truth Table):</strong></p>
+      <table>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>(A·B)</th>
+          <th>(A·B)'</th>
+          <th>A'</th>
+          <th>B'</th>
+          <th>A' + B'</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </table>
+    </section>
+  </main>
+  <div class="back-link">
+    <a href="home.html">&laquo; Back to Home</a>
+  </div>
+  <footer>
+    <p>&copy; 2025 NEB Class 11 Computer Science</p>
+  </footer>
+</body>
+</html>
