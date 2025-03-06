@@ -7,42 +7,209 @@
   <style>
     /* Base Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f7f7f7; color: #333; padding: 20px; }
-    header { background: #2c3e50; color: #fff; padding: 15px; text-align: center; }
-    main { max-width: 800px; margin: 80px auto 20px auto; background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    h1 { font-size: 2rem; margin-bottom: 20px; }
-    h2 { font-size: 1.5rem; margin: 20px 0 10px; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
+    
+    /* Header with Hamburger Menu */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; }
+    details { position: relative; }
+    summary {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      margin-right: 8px;
+      background: transparent;
+      border: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .line {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .menu-text { font-size: 1rem; font-weight: bold; color: #fff; }
+    nav {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #34495e;
+      width: 240px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    nav ul { list-style: none; }
+    nav li { border-bottom: 1px solid #2c3e50; }
+    nav li a {
+      display: block;
+      padding: 10px 15px;
+      color: #ecf0f1;
+      transition: background 0.3s;
+    }
+    nav li a:hover { background: #2c3e50; }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 900px;
+      margin: 100px auto 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
+    h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    h3 { font-size: 1.2rem; margin: 15px 0 10px; }
     p { margin-bottom: 15px; text-align: justify; }
     ul, ol { margin-left: 20px; margin-bottom: 15px; }
     li { margin-bottom: 8px; }
-    .back-link { margin-top: 20px; display: block; text-align: center; }
-    .back-link a { color: #2980b9; text-decoration: none; }
+    table { border-collapse: collapse; margin: 15px 0; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    
+    /* Figure Styling */
+    .diagram { display: block; max-width: 100%; margin: 20px auto; }
+    
+    /* Back to Home Link */
+    .back-link { text-align: center; margin-top: 20px; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
     .back-link a:hover { text-decoration: underline; }
+    
+    /* Footer */
     footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>Chapter 4: Application Package</h1>
+    <div class="header-left">
+      <details open>
+        <summary>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology-I (HTML + CSS)</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
   </header>
+  
+  <!-- Main Content -->
   <main>
+    <h1>Chapter 4: Application Package</h1>
+    
+    <!-- MS-Word Section -->
     <section>
       <h2>MS-Word (Word Processor)</h2>
-      <p>
-        MS-Word is used for creating, editing, and formatting documents. It provides features such as spell checking, text formatting, graphics insertion, and mail merge. Documents are saved with .doc or .docx extensions.
-      </p>
+      <p><strong>Introduction:</strong> MS-Word is a text editing or word processing software developed by Microsoft Corporation under the MS-Office package. Word processing refers to the use of a computer to create, edit, and print documents. A word processor enables you to create a document, store it electronically on a disk, display it on a screen, modify it via keyboard commands, and print it using a printer.</p>
+      <p>MS-Word is a Windows-based application that has many powerful and advanced features for manipulating documents. With MS-Word, you can create various types of documents such as letters, reports, theses, manuals, brochures, advertisements, and many more. In addition to creating, editing, and modifying documents, MS-Word offers special facilities like spelling and grammar checking, synonym and antonym searches, and support for columns, tables, special symbols, pictures, graphs, and charts. Documents created in MS-Word typically have the “.doc” extension, while newer versions use the “.docx” extension.</p>
+      <h3>Features of MS-Word</h3>
+      <ol>
+        <li><strong>Fast Operation:</strong> As a digital text editing software, MS-Word operates faster since it has no mechanical movements.</li>
+        <li><strong>Editing Text Feature (Character Formatting):</strong> Allows operations like insert, delete, modify, undo/redo, and find/replace. You can also customize text using bold, italic, underline, various font sizes, colors, and styles.</li>
+        <li><strong>Permanent Storage:</strong> Documents can be stored electronically on a disk and retrieved whenever needed.</li>
+        <li><strong>Graphics:</strong> You can insert various objects such as pictures and graphs anywhere in a document.</li>
+        <li><strong>OLE (Object Linking and Embedding):</strong> Facilitates information sharing between programs via objects such as charts, equations, pictures, audio, and video files.</li>
+        <li><strong>Mail Merge:</strong> Enables the creation of multiple letters, labels, envelopes, etc., using information stored in a list, database, or spreadsheet.</li>
+        <li><strong>Searching:</strong> Provides tools to search for any word or text and replace or delete them throughout the document.</li>
+        <li><strong>Printing:</strong> Allows you to print documents anytime, anywhere.</li>
+        <li><strong>Formatting a Document:</strong> Offers numerous tools for formatting text—changing alignment, line spacing, adding bullets and numbering, borders, shading, and watermarks.</li>
+        <li><strong>Spelling and Grammar Checker:</strong> Checks for spelling and grammatical errors and highlights them using colored wavy lines.</li>
+        <li><strong>Use of Thesaurus:</strong> Lets you look up synonyms and antonyms with just a few clicks.</li>
+      </ol>
     </section>
+    
+    <!-- MS-Excel Section -->
     <section>
       <h2>MS-Excel (Spreadsheet)</h2>
       <p>
-        MS-Excel is a spreadsheet application that organizes, analyzes, and visualizes data. It supports calculations, chart creation, and data management. Files are saved with .xls or .xlsx extensions.
+        MS-Excel is a spreadsheet software in the MS-Office suite that allows you to store, organize, and analyze numerical and textual data. It enables clear presentation of information and supports mathematical calculations through formulas and equations. Excel can convert data into various charts, such as bar graphs and column charts, and is used for tasks like salary sheets, balance sheets, budget preparation, and statistical analysis.
       </p>
+      <p>
+        The common file extensions for MS-Excel are “.xlsx” and “.xls”.
+      </p>
+      <h3>Common Terminologies Used in Spreadsheets</h3>
+      <ul>
+        <li><strong>Worksheet (Spreadsheet):</strong> A collection of rows and columns used to list, organize, and calculate data.</li>
+        <li><strong>Workbook:</strong> A file containing one or more worksheets (by default, a workbook has three worksheets).</li>
+        <li><strong>Cell:</strong> The intersection of a row and a column, e.g., C2. The active cell is where this intersection occurs.</li>
+      </ul>
+      <h3>Features of MS-Excel</h3>
+      <ul>
+        <li>Supports working with multiple worksheets simultaneously.</li>
+        <li>Enables creation of various charts and graphs.</li>
+        <li>Organizes and manages large volumes of data.</li>
+        <li>Performs calculations automatically using custom formulas.</li>
+        <li>Allows easy sorting of data in ascending or descending order.</li>
+        <li>Supports advanced features like object linking and embedding.</li>
+        <li>Provides formatting tools to enhance data appearance.</li>
+        <li>Includes basic operations like cut, copy, paste, find, and replace.</li>
+        <li>Features internet tools such as a web toolbar.</li>
+        <li>Allows electronic storage of data.</li>
+      </ul>
+      <h3>Cell Reference in Excel</h3>
+      <p>
+        A cell reference is a combination of a column letter and row number (e.g., A1). There are two types:
+      </p>
+      <ul>
+        <li><strong>Relative Cell Reference:</strong> Changes when a formula is copied to another cell (e.g., A1, B4).</li>
+        <li><strong>Absolute Cell Reference:</strong> Remains fixed when a formula is copied; denoted by dollar signs (e.g., $A$2). Press “F4” to toggle.</li>
+      </ul>
     </section>
+    
+    <!-- MS-PowerPoint Section -->
     <section>
       <h2>MS-PowerPoint (Presentation)</h2>
       <p>
-        MS-PowerPoint enables the creation of professional presentations with slides that include text, images, charts, and multimedia. Presentations are saved with .ppt or .pptx extensions.
+        MS-PowerPoint is the presentation software in the MS-Office suite. It enables you to create dynamic and professional presentations using pre-defined layouts, themes, and templates. A presentation consists of a series of slides that can include text, images, graphs, charts, videos, and audio. It serves as a modern alternative to traditional visual aids such as pamphlets, handouts, and posters.
       </p>
+      <p>
+        The file extensions for PowerPoint are “.ppt” for earlier versions and “.pptx” for newer versions. Alternatives include MagicPoint, Apple Keynote, IBM Lotus, and Harvard Graphics.
+      </p>
+      <h3>Features of MS-PowerPoint</h3>
+      <ul>
+        <li>Formatting tools that enhance the appearance and interactivity of presentations.</li>
+        <li>Basic operations like cut, copy, paste, find, and replace.</li>
+        <li>Pre-defined layouts, themes, and templates for fast development.</li>
+        <li>Slide transitions, effects, and custom animations.</li>
+        <li>Supports internal and external hyperlinks.</li>
+        <li>Allows insertion of various charts, graphs, and tables to present detailed information.</li>
+        <li>Includes internet features such as web toolbars and online help.</li>
+      </ul>
     </section>
   </main>
   <div class="back-link">
