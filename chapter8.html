@@ -2,47 +2,260 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chapter 8: Information Security & Cyber Law</title>
+  <title>Chapter 8: Information Security and Cyber Law</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* Base Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f7f7f7; color: #333; padding: 20px; }
-    header { background: #2c3e50; color: #fff; padding: 15px; text-align: center; }
-    main { max-width: 800px; margin: 80px auto 20px auto; background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    h1 { font-size: 2rem; margin-bottom: 20px; }
-    h2 { font-size: 1.5rem; margin: 20px 0 10px; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
+    
+    /* Header with Persistent Menu */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; }
+    details { position: relative; }
+    summary {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      margin-right: 8px;
+      background: transparent;
+      border: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .line {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .menu-text { font-size: 1rem; font-weight: bold; color: #fff; }
+    nav {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #34495e;
+      width: 240px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    nav ul { list-style: none; }
+    nav li { border-bottom: 1px solid #2c3e50; }
+    nav li a {
+      display: block;
+      padding: 10px 15px;
+      color: #ecf0f1;
+      transition: background 0.3s;
+    }
+    nav li a:hover { background: #2c3e50; }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 950px;
+      margin: 100px auto 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
+    h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    h3 { font-size: 1.2rem; margin: 15px 0 10px; }
     p { margin-bottom: 15px; text-align: justify; }
     ul, ol { margin-left: 20px; margin-bottom: 15px; }
     li { margin-bottom: 8px; }
-    .back-link { margin-top: 20px; display: block; text-align: center; }
-    .back-link a { color: #2980b9; text-decoration: none; }
+    table { border-collapse: collapse; margin: 15px 0; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    
+    /* Figure styling (if needed) */
+    .diagram { display: block; max-width: 100%; margin: 20px auto; }
+    
+    /* Back to Home Link */
+    .back-link { text-align: center; margin-top: 20px; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
     .back-link a:hover { text-decoration: underline; }
+    
+    /* Footer */
     footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>Chapter 8: Information Security & Cyber Law</h1>
+    <div class="header-left">
+      <details open>
+        <summary>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology - I</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
   </header>
+  
+  <!-- Main Content -->
   <main>
+    <h1>Chapter 8: Information Security and Cyber Law</h1>
+    
+    <!-- Section 1: What is Information Technology? -->
     <section>
-      <h2>Introduction to Information Security</h2>
+      <h2>What is Information Technology? Describe it with its Social Impacts</h2>
       <p>
-        Information security involves protecting digital data from unauthorized access, alteration, or destruction. This section covers the principles and techniques used to safeguard information.
+        Information Technology (IT) is a modern concept combining Information and Communication Technology. It is used extensively to manage information flow across education, industry, banks, research centers, hospitals, and more. IT has brought the world closer by enabling messages to be sent and received globally in seconds. It serves as a learning and teaching tool in education (enabling distant learning), ensures quality control in industries, assists in hospital management and treatment, and supports research and even space technology.
+      </p>
+      <p>
+        However, the rapid increase in IT use has also led to negative impacts. Cyber crimes are on the rise as criminals can easily steal or disclose confidential information and spread viruses, thereby disturbing social peace and security.
       </p>
     </section>
+    
+    <!-- Section 2: Information Security -->
     <section>
-      <h2>Cyber Law</h2>
+      <h2>Information Security</h2>
       <p>
-        Cyber Law deals with legal issues related to the digital world, including privacy, intellectual property, and cybercrime. It is essential for protecting users and organizations in a connected environment.
+        In a network or cyberspace, there is always the threat of cyber attacks that can result in the loss or damage of valuable data. Information security is the process of protecting network infrastructures from unauthorized access, misuse, modification, destruction, or malfunction. Both physical and software preventive measures are used to safeguard against these threats.
+      </p>
+      <p>
+        Information security helps mitigate threats and attacks by ensuring:
+      </p>
+      <ul>
+        <li><strong>Confidentiality:</strong> Only authorized individuals have access to the information.</li>
+        <li><strong>Integrity:</strong> Data remains accurate and complete, without unauthorized tampering.</li>
+        <li><strong>Availability:</strong> Information is readily accessible to authorized users when needed.</li>
+      </ul>
+    </section>
+    
+    <!-- Section 3: Cryptography -->
+    <section>
+      <h2>Cryptography</h2>
+      <p>
+        Cryptography, derived from the Greek word for "secret writing," is the art and science of hiding information to ensure secure communication. It involves encryption—the process of converting plaintext into an unreadable format (ciphertext) using special algorithms and keys—and decryption, which converts the ciphertext back to plaintext. Encryption is also known as enciphering or encoding, while decryption is sometimes called deciphering or decoding.
       </p>
     </section>
+    
+    <!-- Section 4: What is Digital Divide? -->
     <section>
-      <h2>Applications and Challenges</h2>
+      <h2>What is Digital Divide?</h2>
       <p>
-        This section discusses the measures taken to secure information and the challenges posed by modern cyber threats.
+        The digital divide refers to the gap between those who are computer literate and those who are not. It is the division between technically proficient individuals and those lacking computer skills. This term, first popularized in the mid-1990s, highlights disparities between urban and rural populations, educated and uneducated, as well as rich and poor. It has become a global issue, prompting governments to bridge this gap.
       </p>
+    </section>
+    
+    <!-- Section 5: Computer Ethics/Cyber Ethics -->
+    <section>
+      <h2>What are Computer Ethics or Cyber Ethics?</h2>
+      <p>
+        Computer or cyber ethics are sets of moral principles and codes of conduct that computer professionals should follow to prevent criminal activities using computers. Examples include:
+      </p>
+      <ol>
+        <li>Do not use others' passwords.</li>
+        <li>Do not steal others' information.</li>
+        <li>Do not use computers to harm others.</li>
+        <li>Do not disclose others' secrets.</li>
+        <li>Do not spread viruses in networks.</li>
+        <li>Do not copy licensed software without payment.</li>
+        <li>Do not alter others' data.</li>
+        <li>Do not take possession of others' intellectual property.</li>
+        <li>Do not misuse electronic transactions.</li>
+        <li>Do not use computers to bear false witness.</li>
+      </ol>
+    </section>
+    
+    <!-- Section 6: Cyber Crime -->
+    <section>
+      <h2>What is Cyber Crime? List Out Some Examples</h2>
+      <p>
+        Cyber crime refers to the misuse of computers, the Internet, or other electronic media to commit illegal activities. As the use of IT grows, cyber crimes are also on the rise. Examples include:
+      </p>
+      <ol>
+        <li>Misuse of computers</li>
+        <li>Spreading viruses</li>
+        <li>Stealing information</li>
+        <li>Pirating licensed software</li>
+        <li>Disclosing confidential information</li>
+        <li>Misuse of electronic transactions</li>
+        <li>Posting vulgar or hateful comments online</li>
+        <li>Altering data without permission</li>
+        <li>Spying on others’ information</li>
+        <li>Cracking or hacking</li>
+        <li>Password guessing</li>
+        <li>Salami slicing and data diddling</li>
+        <li>Forgery</li>
+        <li>DOS attacks</li>
+      </ol>
+    </section>
+    
+    <!-- Section 7: Cyber Law -->
+    <section>
+      <h2>What is Cyber Law?</h2>
+      <p>
+        Cyber Law governs the use of computers, the Internet, and other electronic media, with a focus on preventing their misuse. While cyber ethics suggest best practices, cyber law strictly defines punishments for violations. In Nepal, for example, the "Electronic Transaction Ordinance, 2005" was issued on 18th March 2005.
+      </p>
+      <p>
+        Provisions of Cyber Law include:
+      </p>
+      <ul>
+        <li>Electronic and Digital Signature Law</li>
+        <li>Intellectual Property Law</li>
+        <li>Copyright Law</li>
+        <li>Trademark Law</li>
+        <li>Semiconductor Law</li>
+        <li>Patent Law</li>
+        <li>Telecommunication Law</li>
+        <li>Data Protection and Privacy Law</li>
+      </ul>
+    </section>
+    
+    <!-- Section 8: IT Policy of Nepal -->
+    <section>
+      <h2>Objectives of IT Policy of Nepal</h2>
+      <p>
+        The IT policies of Nepal aim to:
+      </p>
+      <ul>
+        <li>Declare IT as a high-priority sector of government and implement practical measures.</li>
+        <li>Establish knowledge-based industries to increase employment.</li>
+        <li>Make public information and service delivery inclusive and effective through e-government.</li>
+        <li>Increase the productive use of IT in social, economic, and business organizations.</li>
+        <li>Improve access to international IT advancements and initiatives.</li>
+        <li>Enhance the effectiveness of the Government Integrated Data Center (GIDC) as a core IT infrastructure.</li>
+      </ul>
     </section>
   </main>
   <div class="back-link">
