@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Questions of Information Security & Cyber Law</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
+    
+    /* Header with Hamburger Menu */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; }
+    details { position: relative; }
+    summary {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 25px;
+      height: 20px;
+      margin-right: 8px;
+      background: transparent;
+      border: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .line {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .menu-text { font-size: 1rem; font-weight: bold; color: #fff; }
+    nav {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #34495e;
+      width: 240px;
+      border-radius: 5px;
+      overflow-y: auto;
+      max-height: 300px;
+    }
+    nav ul { list-style: none; }
+    nav li { border-bottom: 1px solid #2c3e50; }
+    nav li a {
+      display: block;
+      padding: 10px 15px;
+      color: #ecf0f1;
+      transition: background 0.3s;
+    }
+    nav li a:hover { background: #2c3e50; }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 950px;
+      margin: 100px auto 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
+    h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    h3 { font-size: 1.2rem; margin: 15px 0 10px; }
+    p { margin-bottom: 15px; text-align: justify; }
+    ul, ol { margin-left: 20px; margin-bottom: 15px; }
+    li { margin-bottom: 8px; }
+    table { border-collapse: collapse; margin: 15px 0; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    
+    /* Figure Styling */
+    .diagram { display: block; max-width: 100%; margin: 20px auto; }
+    
+    /* Back to Home Link */
+    .back-link { text-align: center; margin-top: 20px; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
+    .back-link a:hover { text-decoration: underline; }
+    
+    /* Footer */
+    footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <details open>
+        <summary>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology-I (HTML + CSS)</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+            <li><a href="Information.html">Questions of Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
+  </header>
+  <main>
+  <h1>Digital Society & Cyber Law in Nepal</h1>
+  
+  <h2>B. Short Answer Questions</h2>
+  
+  <div class="qa">
+    <p class="question"><strong>1. What challenges are we facing to create a digital society in the Nepalese context?</strong></p>
+    <p class="answer">
+      Nepal faces several challenges in its transition toward a digital society. One major obstacle is the limited infrastructure, such as the lack of high-speed internet and inconsistent electricity supply, particularly in rural areas. Additionally, there is a significant digital literacy gap among the population, compounded by the high cost of digital devices and services, which creates a digital divide between urban and rural communities. Inadequate regulatory frameworks that struggle to keep pace with rapid technological advancements and growing cybersecurity concerns further complicate the landscape. Finally, a shortage of skilled IT professionals and social-cultural barriers contribute to the slow adoption of digital technology.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>2. What is computer ethics? What are the commandments of computer ethics?</strong></p>
+    <p class="answer">
+      Computer ethics is the branch of ethics that focuses on the responsible use of computer technology. It addresses issues like privacy, intellectual property, and the overall impact of digital behavior on society. The commandments of computer ethics are guiding principles intended to promote responsible computing. They include:
+    </p>
+    <ul>
+      <li>Not harming others using a computer.</li>
+      <li>Not interfering with other people’s computer work.</li>
+      <li>Respecting the privacy of others.</li>
+      <li>Not stealing data or digital property.</li>
+      <li>Avoiding false or misleading information.</li>
+      <li>Refraining from using unauthorized software.</li>
+      <li>Not misusing computer resources.</li>
+      <li>Respecting intellectual property rights.</li>
+      <li>Considering the social consequences of computing actions.</li>
+      <li>Using computers responsibly and respectfully.</li>
+    </ul>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>3. Discuss the role of computer ethics in the formation of a secure and reliable digital society.</strong></p>
+    <p class="answer">
+      Computer ethics plays a critical role in establishing a secure and reliable digital society by fostering trust and accountability. When developers, organizations, and users adhere to ethical guidelines, it creates an environment where data is respected and protected, thus reducing the likelihood of cybercrime. Ethical practices encourage the development of reliable systems that prioritize user privacy and data integrity. Moreover, by guiding policy formation and regulatory frameworks, computer ethics helps ensure that technological advancements do not compromise societal values.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>4. Explain the basic principles/components of information security.</strong></p>
+    <p class="answer">
+      Information security is founded on several key principles that ensure data protection:
+    </p>
+    <ul>
+      <li><strong>Confidentiality:</strong> Keeping sensitive information accessible only to authorized individuals.</li>
+      <li><strong>Integrity:</strong> Maintaining the accuracy and consistency of data by preventing unauthorized modifications.</li>
+      <li><strong>Availability:</strong> Ensuring that information and resources are accessible when needed.</li>
+    </ul>
+    <p class="answer">
+      Additionally, concepts like authentication (verifying user identity), non-repudiation (ensuring actions or transactions cannot be denied), and accountability (keeping logs and records) are also critical components of a robust information security framework.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>5. Define cyber law. What are the major fields of cyber law?</strong></p>
+    <p class="answer">
+      Cyber law refers to the legal measures and regulations that govern activities in cyberspace, including the use of computers, digital communication, and the internet. It covers several fields such as:
+    </p>
+    <ul>
+      <li><strong>Data Protection & Privacy:</strong> Regulating how personal information is collected, stored, and processed.</li>
+      <li><strong>Intellectual Property:</strong> Protecting copyrights, trademarks, and patents in the digital environment.</li>
+      <li><strong>Cybercrime & Computer Misuse:</strong> Addressing illegal activities like hacking, identity theft, and fraud.</li>
+      <li><strong>E-Commerce & Electronic Transactions:</strong> Governing digital contracts and electronic signatures.</li>
+      <li><strong>Telecommunications Law:</strong> Managing digital communications and network operations.</li>
+      <li><strong>Digital Evidence:</strong> Establishing guidelines for the admissibility and handling of digital data in legal proceedings.</li>
+    </ul>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>6. How do you know that your computer has been victim of a malware attack?</strong></p>
+    <p class="answer">
+      There are several signs that your computer may have been compromised by malware. These include noticeable performance issues such as unexpected slowdowns, frequent system crashes, and instability. You might also see unexpected pop-ups or advertisements, which are common in malware infections. The presence of unknown or unauthorized programs, changes in browser settings like the homepage or default search engine, unusual network activity, and alerts from antivirus software are additional indicators of a malware attack.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>7. How can you protect you and your computer system from cybercrime?</strong></p>
+    <p class="answer">
+      Protection against cybercrime involves a combination of technical measures and informed practices. Regularly updating your operating system and applications helps protect against known vulnerabilities. Installing and maintaining reputable antivirus and anti-malware software is also crucial. Using strong, unique passwords along with multi-factor authentication provides an extra layer of security. Practicing safe browsing habits—such as avoiding suspicious links or downloads—and using firewalls or VPNs can further protect your system. Additionally, regularly backing up your data and staying informed about emerging cyber threats are essential steps in safeguarding both your personal and computer security.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>8. What are the advantages and disadvantages of digital signatures?</strong></p>
+    <p class="answer">
+      Digital signatures offer several advantages including enhanced security through encryption, assurance of document integrity by detecting any post-signature changes, and non-repudiation which prevents signatories from denying their signature. They also contribute to efficiency and cost-effectiveness by streamlining digital transactions and reducing the need for physical paperwork. On the downside, digital signatures rely heavily on a robust public key infrastructure (PKI), and their use can be technically complex. There is also the risk that if private keys are compromised, the security and trust in the digital signature system can be undermined. Interoperability issues between different systems and varying legal recognition across regions can further complicate their adoption.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>9. Explain various areas that are generally covered in cyber law.</strong></p>
+    <p class="answer">
+      Cyber law generally covers several interconnected areas that regulate digital activities. This includes laws against cybercrime, which address unauthorized access, fraud, and hacking; privacy and data protection laws that govern how personal information is managed and safeguarded; and intellectual property rights in the digital space, which are protected through regulations overseeing the reproduction and distribution of digital content. Cyber law also includes guidelines for electronic transactions, ensuring that digital contracts and signatures are legally binding, as well as measures for cybersecurity, online content regulation, and digital forensics for handling electronic evidence in legal processes.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>10. Explain cyber law in Nepal with major provisions included.</strong></p>
+    <p class="answer">
+      In Nepal, cyber law is primarily governed by the Information Technology Act, which was first enacted in 2063 BS and has been amended over time to address emerging issues. The act provides legal recognition for electronic transactions, including e-contracts and digital signatures. It also sets penalties for cybercrime, such as hacking and unauthorized data access, and emphasizes data protection and privacy by outlining guidelines for safeguarding personal information. Furthermore, the law details procedures for the handling and admissibility of digital evidence in courts and includes measures to enhance cybersecurity across critical infrastructures.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>11. List out the major objectives of ICT Policy 2072.</strong></p>
+    <p class="answer">
+      ICT Policy 2072 outlines a strategic framework for advancing Nepal’s digital landscape. Its major objectives include:
+    </p>
+    <ul>
+      <li>Expanding digital infrastructure to ensure widespread broadband and wireless connectivity.</li>
+      <li>Promoting e-governance to enhance transparency, efficiency, and public service delivery.</li>
+      <li>Boosting digital literacy and skills development across the population.</li>
+      <li>Encouraging economic growth through innovation and support for the local tech industry.</li>
+      <li>Strengthening cybersecurity measures to protect against digital threats.</li>
+      <li>Bridging the digital divide between urban and rural areas.</li>
+      <li>Updating regulatory frameworks to adapt to rapid technological changes.</li>
+      <li>Promoting local content creation and software development.</li>
+      <li>Fostering public-private partnerships to drive ICT investment.</li>
+      <li>Supporting research and development in emerging digital technologies.</li>
+    </ul>
+  </div>
+  
+  <h2>C. Long Answer Questions</h2>
+  
+  <div class="qa">
+    <p class="question"><strong>1. Explain at least ten activities that are considered as cybercrime.</strong></p>
+    <p class="answer">
+      Cybercrime encompasses a variety of illegal activities conducted via digital platforms, including:
+    </p>
+    <ol>
+      <li><strong>Hacking:</strong> Unauthorized access to computer systems to steal, alter, or destroy data.</li>
+      <li><strong>Phishing:</strong> Fraudulent attempts to obtain sensitive information by impersonating legitimate entities.</li>
+      <li><strong>Identity Theft:</strong> Stealing personal data to impersonate individuals for fraudulent activities.</li>
+      <li><strong>Cyberstalking:</strong> Repeated harassment or surveillance of individuals via digital means.</li>
+      <li><strong>Online Fraud:</strong> Scams, including financial fraud, auction fraud, and investment scams.</li>
+      <li><strong>Malware Distribution:</strong> Deliberate spreading of viruses, worms, or other harmful software.</li>
+      <li><strong>Denial-of-Service (DoS) Attacks:</strong> Overwhelming systems with traffic to render services unavailable.</li>
+      <li><strong>Cyber Espionage:</strong> Unauthorized access to confidential information for political or economic gain.</li>
+      <li><strong>Child Exploitation:</strong> Distribution or creation of illegal content involving minors.</li>
+      <li><strong>Intellectual Property Infringement:</strong> Unauthorized reproduction or distribution of copyrighted digital content.</li>
+    </ol>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>2. What do you mean by malicious software? Explain any ten malicious software attacks.</strong></p>
+    <p class="answer">
+      Malicious software, or malware, is any software intentionally designed to harm, exploit, or disrupt computer systems and networks. Ten examples of malware attacks include:
+    </p>
+    <ol>
+      <li><strong>Virus:</strong> Self-replicating code that attaches to legitimate programs.</li>
+      <li><strong>Worm:</strong> Malware that spreads autonomously across networks without needing to attach to a host file.</li>
+      <li><strong>Trojan Horse:</strong> Malicious software disguised as a benign application to trick users into installing it.</li>
+      <li><strong>Ransomware:</strong> Encrypts files or locks systems, demanding payment for restoration.</li>
+      <li><strong>Spyware:</strong> Secretly monitors user activity and collects personal information.</li>
+      <li><strong>Adware:</strong> Bombards users with unwanted advertisements and tracks behavior.</li>
+      <li><strong>Rootkit:</strong> Hides the existence of certain processes or programs to maintain persistent access.</li>
+      <li><strong>Keylogger:</strong> Records keystrokes to capture sensitive data like passwords.</li>
+      <li><strong>Botnet Malware:</strong> Infects systems to create networks of compromised devices used in coordinated attacks (e.g., DDoS).</li>
+      <li><strong>Scareware:</strong> Generates false alerts about infections to trick users into purchasing unnecessary software.</li>
+    </ol>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>3. Explain intellectual property along with its types in detail. What legal provisions do we have in Nepal to preserve intellectual property rights?</strong></p>
+    <p class="answer">
+      Intellectual property (IP) refers to the legal rights protecting creations of the mind, including inventions, literary and artistic works, and symbols. Its major types include:
+    </p>
+    <ul>
+      <li><strong>Patents:</strong> Grant exclusive rights to inventors for a limited period.</li>
+      <li><strong>Copyrights:</strong> Protect original literary, artistic, and musical works.</li>
+      <li><strong>Trademarks:</strong> Safeguard distinctive symbols, logos, or brand names.</li>
+      <li><strong>Trade Secrets:</strong> Protect confidential business information that provides a competitive edge.</li>
+      <li><strong>Industrial Designs:</strong> Guard the visual design and appearance of products.</li>
+    </ul>
+    <p class="answer">
+      In Nepal, legal provisions such as the Patent Act, Copyright Act, and Trademark Act provide a framework for protecting intellectual property rights. These laws ensure creators and businesses can seek legal remedies in cases of infringement, thereby encouraging innovation and safeguarding creative endeavors.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>4. Explain digital signature along with its working mechanism.</strong></p>
+    <p class="answer">
+      A digital signature is a cryptographic tool used to ensure the authenticity and integrity of digital documents. The process involves:
+    </p>
+    <ol>
+      <li><strong>Hashing:</strong> Generating a unique digital fingerprint of the document.</li>
+      <li><strong>Encryption with Private Key:</strong> Encrypting the hash using the sender’s private key to create the digital signature.</li>
+      <li><strong>Attachment:</strong> Attaching the digital signature to the document.</li>
+      <li><strong>Verification:</strong> The recipient uses the sender’s public key to decrypt the signature and retrieve the original hash.</li>
+      <li><strong>Comparison:</strong> Comparing the decrypted hash with a newly generated hash from the received document to verify its integrity and authenticity.</li>
+    </ol>
+    <p class="answer">
+      This mechanism ensures data integrity, non-repudiation, and authentication, thereby making digital communications secure and legally binding.
+    </p>
+  </div>
+  
+  <div class="qa">
+    <p class="question"><strong>5. Explain any ten policies included in ICT Policy 2072.</strong></p>
+    <p class="answer">
+      ICT Policy 2072 outlines Nepal’s strategic roadmap for digital transformation through various initiatives. Ten of its key policies are:
+    </p>
+    <ol>
+      <li><strong>Digital Infrastructure Expansion:</strong> Enhancing nationwide broadband and wireless connectivity.</li>
+      <li><strong>E-Governance Development:</strong> Implementing digital platforms to improve transparency and efficiency in public services.</li>
+      <li><strong>Digital Literacy Promotion:</strong> Improving ICT education and skills among the population.</li>
+      <li><strong>Local Content &amp; Software Development:</strong> Encouraging the creation and use of indigenous digital content and locally developed software.</li>
+      <li><strong>Cybersecurity Strengthening:</strong> Establishing frameworks to protect digital assets from cyber threats.</li>
+      <li><strong>Investment Incentives:</strong> Promoting public-private partnerships and providing incentives to boost ICT investments.</li>
+      <li><strong>Regulatory Reforms:</strong> Updating legal frameworks to align with emerging technologies and digital transactions.</li>
+      <li><strong>Innovation &amp; R&amp;D Support:</strong> Supporting research and development in new digital technologies through funding and infrastructure development.</li>
+      <li><strong>Bridging the Digital Divide:</strong> Ensuring equitable access to digital services across urban and rural areas.</li>
+      <li><strong>Human Resource Development:</strong> Enhancing workforce skills through targeted education, training, and certification programs in ICT.</li>
+    </ol>
+  </div>
+   <!-- End Content -->
+  </main>
+  <div class="back-link">
+    <a href="home.html">&laquo; Back to Home</a>
+  </div>
+  <footer>
+    <p>&copy; 2025 NEB Class 11 Computer Science</p>
+  </footer>
+</body>
+</html>
