@@ -7,12 +7,32 @@
   <style>
     /* Reset & Base Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f7f7f7; color: #333; }
+    body { 
+      font-family: Arial, sans-serif; 
+      background: linear-gradient(120deg, #ff9ff3, #54a0ff, #2ecc71, #feca57, #ff6b6b);
+      background-size: 300% 300%;
+      animation: background-wave 10s ease infinite;
+      color: #333; 
+      padding-top: 70px; 
+    }
     a { text-decoration: none; color: inherit; }
     
+    /* Color Spectrum Variables */
+    :root {
+      --spectrum-gradient: linear-gradient(90deg, 
+        #ff6b6b 0%, 
+        #ff9f43 15%, 
+        #f9ca24 30%, 
+        #2ecc71 45%, 
+        #54a0ff 60%, 
+        #5f27cd 75%, 
+        #ff9ff3 90%);
+      --header-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    }
+
     /* Header */
     header {
-      background: #2c3e50;
+      background: var(--header-gradient);
       color: #fff;
       padding: 10px 20px;
       position: fixed;
@@ -23,6 +43,7 @@
       align-items: center;
       justify-content: space-between;
       height: 60px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .header-left {
       display: flex;
@@ -46,71 +67,125 @@
     summary .line {
       width: 100%;
       height: 2px;
-      background: #fff;
+      background: var(--spectrum-gradient);
       border-radius: 1px;
+      transition: transform 0.3s ease;
     }
     .menu-text {
       font-size: 0.9rem;
       font-weight: bold;
       color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     nav {
       position: absolute;
       top: 45px;
       left: 0;
-      background: #34495e;
+      background: linear-gradient(145deg, #34495e 0%, #2c3e50 100%);
       width: 240px;
       max-height: 300px;
       overflow-y: auto;
       border-radius: 0 0 5px 5px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    nav ul { list-style: none; }
-    nav li { border-bottom: 1px solid #2c3e50; }
     nav li a {
-      display: block;
-      padding: 10px 15px;
-      color: #ecf0f1;
-      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
-    nav li a:hover { background: #2c3e50; }
-    .header-right a {
-      color: #fff;
-      font-size: 1rem;
-      font-weight: bold;
-      margin-left: 20px;
+    nav li a:hover {
+      background: rgba(255,255,255,0.05);
+      padding-left: 20px;
+    }
+    nav li a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: var(--spectrum-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    nav li a:hover::before {
+      opacity: 1;
     }
     
     /* Main Content */
     main {
       max-width: 1000px;
       margin: 80px auto 20px;
-      padding: 20px;
+      padding: 30px;
       background: #fff;
-      border-radius: 5px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      border-top: 4px solid #5f27cd;
     }
-    h1 { font-size: 2.2rem; margin-bottom: 20px; text-align: center; }
-    h2 { font-size: 1.6rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-    p { margin-bottom: 15px; text-align: justify; }
-    ol, ul { margin-left: 20px; margin-bottom: 15px; }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      text-align: center;
+      background: var(--spectrum-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin: 25px 0 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #54a0ff;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--spectrum-gradient);
+    }
+    ol li {
+      padding: 12px 15px;
+      margin: 8px 0;
+      background: #f8f9fa;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+    ol li:hover {
+      border-left-color: #ff6b6b;
+      transform: translateX(10px);
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.08);
+    }
     
     /* Footer */
     footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%; /* Ensures the footer is fully extended */
       text-align: center;
-      margin: 20px auto;
-      padding: 10px;
-      background: #2c3e50;
+      padding: 15px;
+      background: var(--header-gradient);
       color: #fff;
       font-size: 0.9rem;
-      border-radius: 5px;
-      max-width: 1000px;
+      border-top: 4px solid #54a0ff; /* Optional decorative border */
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+      z-index: 1000; /* Makes sure it's on top of other content */
     }
     
-    /* Ensure content is not hidden by header */
-    body { padding-top: 70px; }
+    /* Animations */
+    @keyframes background-wave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
   </style>
 </head>
 <body>
+  <!-- Original HTML Content Remains Unchanged -->
   <header>
     <div class="header-left">
       <details>
@@ -151,15 +226,15 @@
     <section>
       <h2>Table of Contents</h2>
       <ol>
-        <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
-        <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
-        <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
-        <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
-        <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
-        <li><a href="chapter6.html">Chapter 6: Web Technology - I</a></li>
-        <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
-        <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
-      </ol>
+  <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+  <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+  <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+  <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+  <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+  <li><a href="chapter6.html">Chapter 6: Web Technology - I</a></li>
+  <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+  <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+</ol>
     </section>
   </main>
   
