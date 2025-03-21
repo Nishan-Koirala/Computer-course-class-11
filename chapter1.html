@@ -3,27 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>Chapter 1: Computer System</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* Base Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
-    
-    /* Header with Hamburger Menu */
+    /* Base Reset & Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease-out;
+    }
+    body { 
+      font-family: 'Segoe UI', Arial, sans-serif; 
+      background: linear-gradient(120deg, #ff9ff3, #54a0ff, #2ecc71, #feca57, #ff6b6b, #ff9f43, #f9ca24, #2ecc71, #54a0ff, #5f27cd, #ff9ff3, #ff1493, #ff4500, #32cd32, #00ced1, #8a2be2, #ff6347, #3cb371, #20b2aa, #ff69b4);
+      background-size: 300% 300%;
+      animation: background-wave 10s ease infinite;
+      color: #333; 
+      padding-top: 70px; 
+      min-height: 100vh;
+      will-change: background-position;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Color Spectrum Variables */
+    :root {
+      --spectrum-gradient: linear-gradient(90deg, 
+        #ff6b6b 0%, 
+        #ff9f43 15%, 
+        #f9ca24 30%, 
+        #2ecc71 45%, 
+        #54a0ff 60%, 
+        #5f27cd 75%, 
+        #ff9ff3 90%);
+      --header-gradient: linear-gradient(135deg, #2c3e50, #3498db);
+    }
+
+    /* Header */
     header {
-      background: #2c3e50;
+      background: var(--header-gradient);
       color: #fff;
       padding: 10px 20px;
       position: fixed;
       width: 100%;
       top: 0;
-      z-index: 200;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 60px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .header-left { display: flex; align-items: center; }
-    details { position: relative; }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    /* Hamburger Menu using details/summary */
+    details {
+      position: relative;
+    }
     summary {
       cursor: pointer;
       display: flex;
@@ -31,80 +68,267 @@
       justify-content: space-around;
       width: 25px;
       height: 20px;
-      margin-right: 8px;
       background: transparent;
       border: none;
     }
     summary::-webkit-details-marker { display: none; }
     summary .line {
       width: 100%;
-      height: 3px;
-      background: #fff;
-      border-radius: 2px;
+      height: 2px;
+      background: var(--spectrum-gradient);
+      border-radius: 1px;
     }
-    .menu-text { font-size: 1rem; font-weight: bold; color: #fff; }
+    /* Transform lines when menu is open */
+    details[open] summary .line:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+    details[open] summary .line:nth-child(2) {
+      opacity: 0;
+    }
+    details[open] summary .line:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+    .menu-text {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
     nav {
       position: absolute;
-      top: 35px;
+      top: 45px;
       left: 0;
-      background: #34495e;
+      background: linear-gradient(145deg, #34495e, #2c3e50);
       width: 240px;
-      border-radius: 5px;
+      max-height: 70vh;
       overflow-y: auto;
-      max-height: 300px;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    nav ul { list-style: none; }
-    nav li { border-bottom: 1px solid #2c3e50; }
+    nav ul {
+      list-style: none;
+      padding: 10px;
+    }
+    nav li {
+      margin: 10px 0;
+    }
     nav li a {
       display: block;
       padding: 10px 15px;
-      color: #ecf0f1;
-      transition: background 0.3s;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 5px;
+      position: relative;
     }
-    nav li a:hover { background: #2c3e50; }
+    nav li a:hover {
+      background: rgba(255,255,255,0.2);
+      padding-left: 25px;
+    }
+    nav li a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: var(--spectrum-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    nav li a:hover::before {
+      opacity: 1;
+    }
     .header-right a {
       color: #fff;
       font-size: 1rem;
       font-weight: bold;
       margin-left: 20px;
     }
-    
+
     /* Main Content */
     main {
-      max-width: 950px;
-      margin: 100px auto 20px;
-      padding: 20px;
-      background: #fff;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 1000px;
+      margin: 80px auto 20px;
+      padding: 30px;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      border-top: 4px solid #5f27cd;
     }
-    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
-    h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-    h3 { font-size: 1.2rem; margin: 15px 0 10px; }
-    p { margin-bottom: 15px; text-align: justify; }
-    ul, ol { margin-left: 20px; margin-bottom: 15px; }
-    li { margin-bottom: 8px; }
-    table { border-collapse: collapse; margin: 15px 0; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    h1 {
+      font-size: 2.4rem;
+      margin: 0 auto 25px;
+      text-align: center;
+      background: var(--spectrum-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.3;
+      max-width: 80%;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin: 25px 0 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #54a0ff;
+      position: relative;
+      color: #2c3e50;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--spectrum-gradient);
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin: 15px 0 10px;
+      color: #2c3e50;
+    }
+    p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 15px 0;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
     
     /* Figure Styling */
-    .diagram { display: block; max-width: 100%; margin: 20px auto; }
+    .diagram {
+      display: block;
+      max-width: 100%;
+      margin: 20px auto;
+    }
+    
+    /* FAQ Section (Static Q&A) */
+    section.faq {
+      margin-top: 40px;
+    }
+    section.faq .qa-item {
+      margin-bottom: 20px;
+    }
+    section.faq .qa-item h3 {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+    section.faq .qa-item p {
+      margin-left: 20px;
+      line-height: 1.5;
+    }
     
     /* Back to Home Link */
-    .back-link { text-align: center; margin-top: 20px; }
-    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
-    .back-link a:hover { text-decoration: underline; }
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back-link a {
+      color: #fff;
+      background: var(--spectrum-gradient);
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .back-link a:hover {
+      background: rgba(255,255,255,0.8);
+      color: #333;
+    }
     
     /* Footer */
-    footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      background: var(--header-gradient);
+      color: #fff;
+      font-size: 0.9rem;
+      border-top: 4px solid #54a0ff;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+      margin-top: 50px;
+    }
+    footer::before {
+      content: '';
+      display: block;
+      height: 3px;
+      background: var(--spectrum-gradient);
+      animation: footer-border 8s linear infinite;
+      margin-bottom: 10px;
+    }
+    
+    /* Animations */
+    @keyframes background-wave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes footer-border {
+      0% { background-position: 0% 0; }
+      100% { background-position: 100% 0; }
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      main {
+        padding: 20px;
+        margin: 70px 15px 80px;
+        border-radius: 10px;
+      }
+      h1 {
+        font-size: 1.8rem;
+        max-width: 100%;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      nav {
+        width: 100%;
+        border-radius: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+    }
+    @media (max-width: 480px) {
+      .menu-text {
+        display: none;
+      }
+      header {
+        padding: 10px 15px;
+      }
+      main {
+        padding: 15px;
+        margin: 60px 10px 70px;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="header-left">
-      <details open>
-        <summary>
+      <details aria-label="Main menu" open>
+        <summary aria-expanded="true">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
@@ -130,6 +354,8 @@
       <a href="home.html">Home</a>
     </div>
   </header>
+  
+  <!-- Main Content -->
   <main>
     <h1>Chapter 1: Computer System</h1>
     <!-- Introduction -->
@@ -412,13 +638,60 @@
       </ul>
     </section>
     
-    <!-- End Content -->
+    <!-- Static Q&A Section -->
+    <section class="faq">
+      <h2>Questions &amp; Answers</h2>
+      <div class="qa-item">
+        <h3>1. What is a computer system?</h3>
+        <p>A computer system is an integrated combination of hardware, software, data, procedures, and people that work together to process and store information.</p>
+      </div>
+      <div class="qa-item">
+        <h3>2. What does the IPO cycle stand for?</h3>
+        <p>IPO stands for Input, Process, Output – it describes the cycle where a computer takes in data, processes it, and then produces output.</p>
+      </div>
+      <div class="qa-item">
+        <h3>3. What are the key components of a computer?</h3>
+        <p>The key components include hardware (input, output, processing, and storage devices), software (operating systems and applications), and supporting elements such as data, procedures, and users.</p>
+      </div>
+      <div class="qa-item">
+        <h3>4. How is primary memory different from secondary memory?</h3>
+        <p>Primary memory (like RAM and ROM) is used for immediate processing and is volatile, while secondary memory (hard disks, optical drives, flash storage) provides long-term, non-volatile data storage.</p>
+      </div>
+      <div class="qa-item">
+        <h3>5. What are the generations of computers?</h3>
+        <p>Computers are categorized into generations: First Generation (vacuum tubes), Second Generation (transistors), Third Generation (integrated circuits), Fourth Generation (VLSI technology), and Fifth Generation (microprocessors with AI and parallel processing).</p>
+      </div>
+      <div class="qa-item">
+        <h3>6. What is the function of the CPU?</h3>
+        <p>The CPU executes instructions, performs calculations, and manages the data flow between different components of the computer system.</p>
+      </div>
+      <div class="qa-item">
+        <h3>7. What role does software play in a computer system?</h3>
+        <p>Software provides the instructions that tell the hardware what tasks to perform, enabling a computer to run applications and operate efficiently.</p>
+      </div>
+      <div class="qa-item">
+        <h3>8. What are some common input devices?</h3>
+        <p>Common input devices include keyboards, mice, scanners, touchscreens, light pens, and joysticks.</p>
+      </div>
+      <div class="qa-item">
+        <h3>9. What are some common output devices?</h3>
+        <p>Common output devices include monitors, printers, speakers, and plotters.</p>
+      </div>
+      <div class="qa-item">
+        <h3>10. What is computer architecture?</h3>
+        <p>Computer architecture refers to the design and structure of a computer system, including its hardware components and the way they interact, ensuring efficient operation and performance.</p>
+      </div>
+    </section>
   </main>
+  
+  <!-- Back to Home Link -->
   <div class="back-link">
     <a href="home.html">&laquo; Back to Home</a>
   </div>
+  
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 NEB Class 11 Computer Science</p>
+    <p>&copy; 2025 NEB Class 11 Computer Science. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
