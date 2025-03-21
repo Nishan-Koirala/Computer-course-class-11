@@ -5,25 +5,61 @@
   <title>Chapter 8: Information Security and Cyber Law</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* Base Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f7f7f7; color: #333; }
-    
-    /* Header with Persistent Menu */
+    /* Base Reset & Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease-out;
+    }
+    body { 
+      font-family: 'Segoe UI', Arial, sans-serif; 
+      background: linear-gradient(120deg, #ff9ff3, #54a0ff, #2ecc71, #feca57, #ff6b6b, #ff9f43, #f9ca24, #2ecc71, #54a0ff, #5f27cd, #ff9ff3, #ff1493, #ff4500, #32cd32, #00ced1, #8a2be2, #ff6347, #3cb371, #20b2aa, #ff69b4);
+      background-size: 300% 300%;
+      animation: background-wave 10s ease infinite;
+      color: #333; 
+      padding-top: 70px; 
+      min-height: 100vh;
+      will-change: background-position;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Color Spectrum Variables */
+    :root {
+      --spectrum-gradient: linear-gradient(90deg, 
+        #ff6b6b 0%, 
+        #ff9f43 15%, 
+        #f9ca24 30%, 
+        #2ecc71 45%, 
+        #54a0ff 60%, 
+        #5f27cd 75%, 
+        #ff9ff3 90%);
+      --header-gradient: linear-gradient(135deg, #2c3e50, #3498db);
+    }
+
+    /* Header with Hamburger Menu */
     header {
-      background: #2c3e50;
+      background: var(--header-gradient);
       color: #fff;
       padding: 10px 20px;
       position: fixed;
       width: 100%;
       top: 0;
-      z-index: 200;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 60px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .header-left { display: flex; align-items: center; }
-    details { position: relative; }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    details {
+      position: relative;
+    }
     summary {
       cursor: pointer;
       display: flex;
@@ -31,54 +67,102 @@
       justify-content: space-around;
       width: 25px;
       height: 20px;
-      margin-right: 8px;
       background: transparent;
       border: none;
     }
     summary::-webkit-details-marker { display: none; }
     summary .line {
       width: 100%;
-      height: 3px;
-      background: #fff;
-      border-radius: 2px;
+      height: 2px;
+      background: var(--spectrum-gradient);
+      border-radius: 1px;
     }
-    .menu-text { font-size: 1rem; font-weight: bold; color: #fff; }
+    details[open] summary .line:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+    details[open] summary .line:nth-child(2) {
+      opacity: 0;
+    }
+    details[open] summary .line:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+    .menu-text {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
     nav {
       position: absolute;
-      top: 35px;
+      top: 45px;
       left: 0;
-      background: #34495e;
+      background: linear-gradient(145deg, #34495e, #2c3e50);
       width: 240px;
-      border-radius: 5px;
+      max-height: 70vh;
       overflow-y: auto;
-      max-height: 300px;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    nav ul { list-style: none; }
-    nav li { border-bottom: 1px solid #2c3e50; }
+    nav ul {
+      list-style: none;
+      padding: 10px;
+    }
+    nav li {
+      margin: 10px 0;
+    }
     nav li a {
       display: block;
       padding: 10px 15px;
-      color: #ecf0f1;
-      transition: background 0.3s;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 5px;
+      position: relative;
     }
-    nav li a:hover { background: #2c3e50; }
+    nav li a:hover {
+      background: rgba(255,255,255,0.2);
+      padding-left: 25px;
+    }
+    nav li a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: var(--spectrum-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    nav li a:hover::before {
+      opacity: 1;
+    }
     .header-right a {
       color: #fff;
       font-size: 1rem;
       font-weight: bold;
       margin-left: 20px;
     }
-    
+
     /* Main Content */
     main {
       max-width: 950px;
       margin: 100px auto 20px;
-      padding: 20px;
-      background: #fff;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 30px;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
     }
-    h1 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
+    h1 { 
+      font-size: 2rem; 
+      margin-bottom: 20px; 
+      text-align: center; 
+      background: var(--spectrum-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.3;
+    }
     h2 { font-size: 1.5rem; margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
     h3 { font-size: 1.2rem; margin: 15px 0 10px; }
     p { margin-bottom: 15px; text-align: justify; }
@@ -86,18 +170,65 @@
     li { margin-bottom: 8px; }
     table { border-collapse: collapse; margin: 15px 0; width: 100%; }
     th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
     
-    /* Figure styling (if needed) */
-    .diagram { display: block; max-width: 100%; margin: 20px auto; }
+    /* Special Styling */
+    code { background: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
+    pre { background: #f4f4f4; padding: 15px; margin: 15px 0; border-radius: 5px; overflow-x: auto; }
+    
+    /* Q&A Section */
+    section.faq {
+      margin-top: 40px;
+    }
+    section.faq .qa-item {
+      margin-bottom: 20px;
+    }
+    section.faq .qa-item h3 {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+    section.faq .qa-item p {
+      margin-left: 20px;
+      line-height: 1.5;
+    }
     
     /* Back to Home Link */
-    .back-link { text-align: center; margin-top: 20px; }
-    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
-    .back-link a:hover { text-decoration: underline; }
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back-link a {
+      color: #fff;
+      background: var(--spectrum-gradient);
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .back-link a:hover {
+      background: rgba(255,255,255,0.8);
+      color: #333;
+    }
     
     /* Footer */
-    footer { text-align: center; margin-top: 20px; font-size: 0.9rem; color: #555; }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #fff;
+      background: var(--header-gradient);
+      padding: 15px;
+      border-top: 4px solid #54a0ff;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Animations */
+    @keyframes background-wave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
   </style>
 </head>
 <body>
@@ -114,14 +245,14 @@
           <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
-            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
-            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion &amp; Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software &amp; Operating System</a></li>
             <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
-            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
-            <li><a href="chapter6.html">Chapter 6: Web Technology - I</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts &amp; Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology-I (HTML + CSS)</a></li>
             <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
-            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
-            <li><a href="Information.html">Questions of Information Security & Cyber Law</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security &amp; Cyber Law</a></li>
+            <li><a href="Information.html">Questions of Information Security &amp; Cyber Law</a></li>
           </ul>
         </nav>
       </details>
@@ -132,7 +263,7 @@
     </div>
   </header>
   
-  <!-- Main Content -->
+ <!-- Main Content -->
   <main>
     <h1>Chapter 8: Information Security and Cyber Law</h1>
     
@@ -259,10 +390,80 @@
         <li>Enhance the effectiveness of the Government Integrated Data Center (GIDC) as a core IT infrastructure.</li>
       </ul>
     </section>
-  </main>
-  <div class="back-link">
-    <a href="home.html">&laquo; Back to Home</a>
+<!-- Q&A Section -->
+<section class="faq">
+  <h2>Questions &amp; Answers</h2>
+
+  <div class="qa-item">
+    <h3>1. What is Information Technology (IT)?</h3>
+    <p>Information Technology (IT) combines Information and Communication Technology to manage information flow across industries, education, banks, research centers, hospitals, and more. It facilitates global communication and serves as a tool in various fields such as education, quality control, and research.</p>
   </div>
+
+  <div class="qa-item">
+    <h3>2. What are the social impacts of Information Technology?</h3>
+    <p>
+      <strong>Positive impacts:</strong> IT enables distant learning, supports hospital management, assists in research, and ensures quality control in industries.<br>
+      <strong>Negative impacts:</strong> Increased cyber crimes like theft of confidential information and virus spread, disturbing social peace and security.
+    </p>
+  </div>
+
+  <div class="qa-item">
+    <h3>3. What is Information Security?</h3>
+    <p>Information Security involves protecting network infrastructures from unauthorized access, misuse, modification, destruction, or malfunction. It ensures confidentiality, integrity, and availability of data.</p>
+  </div>
+
+  <div class="qa-item">
+    <h3>4. What is Cryptography?</h3>
+    <p>Cryptography is the art and science of hiding information for secure communication. It involves encryption (converting plaintext into ciphertext) and decryption (converting ciphertext back into plaintext).</p>
+  </div>
+
+  <div class="qa-item">
+    <h3>5. What is the Digital Divide?</h3>
+    <p>The digital divide refers to the gap between computer-literate individuals and those lacking computer skills, highlighting disparities between urban and rural populations, rich and poor, and educated and uneducated.</p>
+  </div>
+
+  <div class="qa-item">
+    <h3>6. What are Cyber Ethics?</h3>
+    <p>Cyber Ethics are sets of moral principles and codes of conduct that guide computer professionals to prevent criminal activities. Examples include not using others' passwords, not stealing information, and not spreading viruses.</p>
+  </div>
+
+  <div class="qa-item">
+    <h3>7. What is Cyber Crime? Provide examples.</h3>
+    <p>Cyber crime refers to illegal activities using computers or the Internet, such as spreading viruses, stealing information, pirating software, cracking or hacking, posting vulgar comments, and DOS attacks.</p>
+  </div>
+
+  <div class="qa-item">
+    <h3>8. What is Cyber Law?</h3>
+    <p>Cyber Law governs the use of computers, the Internet, and electronic media, preventing their misuse. It defines punishments for violations, such as those under Nepal's "Electronic Transaction Ordinance, 2005."</p>
+  </div>
+
+  <div class="qa-item">
+    <h3>9. List the provisions of Cyber Law.</h3>
+    <p>Provisions include:
+      <ul>
+        <li>Electronic and Digital Signature Law</li>
+        <li>Intellectual Property Law</li>
+        <li>Copyright Law</li>
+        <li>Trademark Law</li>
+        <li>Semiconductor Law</li>
+        <li>Patent Law</li>
+        <li>Telecommunication Law</li>
+        <li>Data Protection and Privacy Law</li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="qa-item">
+    <h3>10. What are the objectives of Nepal's IT Policy?</h3>
+    <p>The objectives include declaring IT as a high-priority sector, establishing knowledge-based industries for employment, promoting e-government for inclusive public service delivery, and improving access to international IT advancements.</p>
+  </div>
+</section>
+  </main>
+
+   <div class="back-link">
+      <a href="home.html">&laquo; Back to Home</a>
+    </div>
+
   <footer>
     <p>&copy; 2025 NEB Class 11 Computer Science</p>
   </footer>
