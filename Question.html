@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 5: Programming Concepts and Logics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Base Reset & Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease-out;
+    }
+    body { 
+      font-family: 'Segoe UI', Arial, sans-serif; 
+      background: linear-gradient(120deg, #ff9ff3, #54a0ff, #2ecc71, #feca57, #ff6b6b, #ff9f43, #f9ca24, #2ecc71, #54a0ff, #5f27cd, #ff9ff3, #ff1493, #ff4500, #32cd32, #00ced1, #8a2be2, #ff6347, #3cb371, #20b2aa, #ff69b4);
+      background-size: 300% 300%;
+      animation: background-wave 10s ease infinite;
+      color: #333; 
+      padding-top: 70px; 
+      min-height: 100vh;
+      will-change: background-position;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Color Spectrum Variables */
+    :root {
+      --spectrum-gradient: linear-gradient(90deg, 
+        #ff6b6b 0%, 
+        #ff9f43 15%, 
+        #f9ca24 30%, 
+        #2ecc71 45%, 
+        #54a0ff 60%, 
+        #5f27cd 75%, 
+        #ff9ff3 90%);
+      --header-gradient: linear-gradient(135deg, #2c3e50, #3498db);
+    }
+
+    /* Header */
+    header {
+      background: var(--header-gradient);
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    /* Hamburger Menu using details/summary */
+    details {
+      position: relative;
+    }
+    summary {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 25px;
+      height: 20px;
+      background: transparent;
+      border: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .line {
+      width: 100%;
+      height: 2px;
+      background: var(--spectrum-gradient);
+      border-radius: 1px;
+    }
+    /* Transform lines when menu is open */
+    details[open] summary .line:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+    details[open] summary .line:nth-child(2) {
+      opacity: 0;
+    }
+    details[open] summary .line:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+    .menu-text {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    nav {
+      position: absolute;
+      top: 45px;
+      left: 0;
+      background: linear-gradient(145deg, #34495e, #2c3e50);
+      width: 240px;
+      max-height: 70vh;
+      overflow-y: auto;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    nav ul {
+      list-style: none;
+      padding: 10px;
+    }
+    nav li {
+      margin: 10px 0;
+    }
+    nav li a {
+      display: block;
+      padding: 10px 15px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 5px;
+      position: relative;
+    }
+    nav li a:hover {
+      background: rgba(255,255,255,0.2);
+      padding-left: 25px;
+    }
+    nav li a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: var(--spectrum-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    nav li a:hover::before {
+      opacity: 1;
+    }
+    .header-right a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1000px;
+      margin: 80px auto 20px;
+      padding: 30px;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      border-top: 4px solid #5f27cd;
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin: 0 auto 25px;
+      text-align: center;
+      background: var(--spectrum-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.3;
+      max-width: 80%;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin: 25px 0 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #54a0ff;
+      position: relative;
+      color: #2c3e50;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--spectrum-gradient);
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin: 15px 0 10px;
+      color: #2c3e50;
+    }
+    p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 15px 0;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    /* Figure Styling */
+    .diagram {
+      display: block;
+      max-width: 100%;
+      margin: 20px auto;
+    }
+    
+    /* FAQ Section (Static Q&A) */
+    section.faq {
+      margin-top: 40px;
+    }
+    section.faq .qa-item {
+      margin-bottom: 20px;
+    }
+    section.faq .qa-item h3 {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+    section.faq .qa-item p {
+      margin-left: 20px;
+      line-height: 1.5;
+    }
+    
+    /* Back to Home Link */
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back-link a {
+      color: #fff;
+      background: var(--spectrum-gradient);
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .back-link a:hover {
+      background: rgba(255,255,255,0.8);
+      color: #333;
+    }
+    
+    /* Footer */
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      background: var(--header-gradient);
+      color: #fff;
+      font-size: 0.9rem;
+      border-top: 4px solid #54a0ff;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+      margin-top: 50px;
+    }
+    footer::before {
+      content: '';
+      display: block;
+      height: 3px;
+      background: var(--spectrum-gradient);
+      animation: footer-border 8s linear infinite;
+      margin-bottom: 10px;
+    }
+    
+    /* Code Box Style */
+    .code-box {
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+    
+    /* Animations */
+    @keyframes background-wave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes footer-border {
+      0% { background-position: 0% 0; }
+      100% { background-position: 100% 0; }
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      main {
+        padding: 20px;
+        margin: 70px 15px 80px;
+        border-radius: 10px;
+      }
+      h1 {
+        font-size: 1.8rem;
+        max-width: 100%;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      nav {
+        width: 100%;
+        border-radius: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+    }
+    @media (max-width: 480px) {
+      .menu-text {
+        display: none;
+      }
+      header {
+        padding: 10px 15px;
+      }
+      main {
+        padding: 15px;
+        margin: 60px 10px 70px;
+      }
+    }
+.output-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <details aria-label="Main menu" open>
+        <summary aria-expanded="true">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </summary>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="chapter1.html">Chapter 1: Computer System</a></li>
+            <li><a href="chapter2.html">Chapter 2: Number System, Conversion & Boolean Logic</a></li>
+            <li><a href="chapter3.html">Chapter 3: Software & Operating System</a></li>
+            <li><a href="chapter4.html">Chapter 4: Application Package</a></li>
+            <li><a href="chapter5.html">Chapter 5: Programming Concepts & Logics</a></li>
+            <li><a href="chapter6.html">Chapter 6: Web Technology-I (HTML + CSS)</a></li>
+            <li><a href="chapter7.html">Chapter 7: Multimedia</a></li>
+            <li><a href="chapter8.html">Chapter 8: Information Security & Cyber Law</a></li>
+            <li><a href="Information.html">Questions of Information Security & Cyber Law</a></li>
+          </ul>
+        </nav>
+      </details>
+      <div class="menu-text">Menu</div>
+    </div>
+    <div class="header-right">
+      <a href="home.html">Home</a>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <h1>Extra C Programming Code Questions</h1>
+    <!-- Introduction -->
+    <section>
+      <h2> Write the C program for the following:</h2>
+      
+      <h3>Q1. Check if the given input number is prime number or not.</h3>
+<h3>Program Code</h3>
+      <div class="code-box">
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, flag = 0;
+    
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    
+    if(n <= 1) {
+        printf("%d is not a prime number.\n", n);
+        return 0;
+    }
+    
+    for(i = 2; i < n; i++) {
+        if(n % i == 0) {
+            flag = 1;
+            break;
+        }
+    }
+    
+    if(flag)
+        printf("%d is not a prime number.\n", n);
+    else
+        printf("%d is a prime number.\n", n);
+    
+    return 0;
+}
+        </pre>
+      </div>
+<h3>Output</h3>
+<img class="output-image" src="Prime.png" alt="Sample output of the perfect number checker">
+
+      
+      <h3>Q2. Find factorial of an input number.</h3>
+<h3>Program Code</h3>
+      <div class="code-box">
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int i,n;
+    unsigned long long factorial = 1;
+    
+    printf("Enter a non-negative integer (e.g., 5): ");
+    if (scanf("%d", &n) != 1) {
+        printf("Invalid input. Please enter an integer.\n");
+        return 1;
+    }
+    
+    if (n < 0) {
+        printf("Factorial is not defined for negative numbers.\n");
+        return 1;
+    }
+    
+    for (i = 1; i <= n; i++) {
+        factorial *= i;
+    }
+    
+    printf("Factorial of %d = %llu\n", n, factorial);
+    return 0;
+}
+        </pre>
+      </div>
+<h3>Output</h3>
+<img class="output-image" src="Factorial.png" alt="Sample output of the perfect number checker">
+      
+      <h3>Q3. If input number is palindrome or not.</h3>
+<h3>Program Code</h3>
+      <div class="code-box">
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, original, reversed = 0, remainder;
+    
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+    
+    original = n;
+    
+    while (n != 0) {
+        remainder = n % 10;
+        reversed = reversed * 10 + remainder;
+        n /= 10;
+    }
+    
+    if (original == reversed)
+        printf("%d is a palindrome.\n", original);
+    else
+        printf("%d is not a palindrome.\n", original);
+    
+    return 0;
+}
+        </pre>
+      </div>
+<h3>Output</h3>
+<img class="output-image" src="Palindrome.png" alt="Sample output of the perfect number checker">
+      
+      <h3>Q4. Generate fibonacci series for n terms.</h3>
+<h3>Program Code</h3>
+      <div class="code-box">
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    unsigned long long a = 0, b = 1, nextTerm;
+    
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+    
+    printf("Fibonacci Series: \n");
+    
+    for(i = 1; i <= n; i++){
+        printf("%llu ", a);
+        nextTerm = a + b;
+        a = b;
+        b = nextTerm;
+    }
+    
+    printf("\n");
+    return 0;
+}
+        </pre>
+      </div>
+<h3>Output</h3>
+<img class="output-image" src="Fibonacci.png" alt="Sample output of the perfect number checker">
+      
+      <h3>Q5. Check input number is perfect or not.</h3>
+<h3>Program Code</h3>
+      <div class="code-box">
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int i,n, sum = 0;
+    
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+    
+    // Find all proper divisors of n and add them up
+    for (i = 1; i <= n / 2; i++) {
+        if (n % i == 0) {
+            sum += i;
+        }
+    }
+    
+    // Compare the sum with the original number
+    if (sum == n)
+        printf("%d is a perfect number.\n", n);
+    else
+        printf("%d is not a perfect number.\n", n);
+    
+    return 0;
+}
+        </pre>
+      </div>
+<h3>Output</h3>
+<img class="output-image" src="Perfect.png" alt="Sample output of the perfect number checker">
+
+    </section>
+  </main>
+  
+  <!-- Back to Home Link -->
+  <div class="back-link">
+    <a href="home.html">&laquo; Back to Home</a>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 NEB Class 11 Computer Science. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
